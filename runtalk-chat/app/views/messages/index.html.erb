@@ -1,14 +1,12 @@
 Messages
 
-<ul id="messages">
-  <% @messages.each do |message| %>
-  <li>
-    <%= message.content %>
-  </li>
-  <% end %>
-</ul>
-
-<%= form_for Message.new do |f| %>
+<%= form_for Message.new, remote: true do |f| %>
   <%= f.text_field :content, placeholder: "chat here..." %>
   <%= f.submit "Submit", id: 'submit_message' %>
 <% end %>
+
+<ul id="messages">
+  <%= render @messages %>
+</ul>
+
+<%= subscribe_to "/messages/new" %>

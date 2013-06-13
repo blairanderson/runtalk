@@ -12,11 +12,12 @@ gem 'sqlite3'
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
   gem 'capybara'
+  gem 'guard-rspec'
 end
 
 group :development do 
   gem 'better_errors'
-  gem 'guard-rspec'
+  gem "binding_of_caller"
 end
 
 # Use SCSS for stylesheets
