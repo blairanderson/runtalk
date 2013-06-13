@@ -1,0 +1,10 @@
+Messages
+<ul id="messages">
+  <li>stuff</li>
+</ul>
+
+<%= form_tag("/messages", :method => :post) do %>
+  <%= label_tag(:message_content, "Text here: ") %>
+  <%= text_field_tag(:message_content) %>
+  <%= submit_tag("Submit", id: 'submit_message') %>
+<% end %>
