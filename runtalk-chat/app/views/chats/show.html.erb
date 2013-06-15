@@ -15,3 +15,35 @@
 
 
 <%= subscribe_to chat_path(@chat) %>
+
+
+<script>
+// if user clicks button to add location. 
+// run this code and 'POST' it to locations#create
+// message has one location 
+function success(position) {
+  
+  var lattitude = position.coords.latitude;
+  var longitude = position.coords.longitude;
+  var accuracy = position.coords.accuracy
+  console.log(position.coords);
+  console.log(position.coords.latitude);
+  console.log(position.coords.longitude);
+  console.log(position.coords.accuracy);
+}
+
+function error(msg) {
+  var s = document.querySelector('#status');
+  s.innerHTML = typeof msg == 'string' ? msg : "failed";
+  s.className = 'fail';
+  
+  // console.log(arguments);
+}
+
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(success, error);
+} else {
+  error('not supported');
+}
+
+</script>

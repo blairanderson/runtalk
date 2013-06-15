@@ -1,4 +1,7 @@
-  <li>
-    <span id="created_at" class="pull-left"><%= message.created_at.strftime("%H:%M") %>:  </span>
-    <span class="message_content"><b><%= message.content %></b></span>
-  </li>
+<li>
+  <span id="created_at" class="pull-left"><%= message.created_at.strftime("%H:%M") %>:  </span>
+  <span class="message_content"><b><%= message.content %></b></span>
+  <%# if message.location %>
+    <%# render the map stuffing %>
+  <%# end %>
+</li>
