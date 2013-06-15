@@ -1,5 +1,5 @@
 RuntalkChat::Application.routes.draw do
-  root 'messages#index'
+  root 'chats#index'
   resources :chats do 
     resources :messages
   end

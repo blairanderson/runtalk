@@ -1,9 +1,5 @@
 class MessagesController < ApplicationController
 
-  def index
-    @messages = Message.all.reverse
-  end
-
   def create
     @chat = Chat.find_by_slug(params[:chat_id])
     @message = @chat.messages.build(params[:message])
@@ -14,6 +10,5 @@ class MessagesController < ApplicationController
         format.js {@message}
       end
     end
-
   end
 end
