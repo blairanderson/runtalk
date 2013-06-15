@@ -1,5 +1,6 @@
 class ChatsController < ApplicationController
 
-  def index
+  def show
+    @chat = Chat.find_by_slug(params[:id])
   end
 end

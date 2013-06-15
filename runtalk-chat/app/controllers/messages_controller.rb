@@ -5,11 +5,12 @@ class MessagesController < ApplicationController
   end
 
   def create
-    @message = Message.new(params[:message])
+    @chat = Chat.find_by_slug(params[:chat_id])
+    @message = @chat.messages.build(params[:message])
     
     respond_to do |format|
       if @message.save
-        format.html { redirect_to root_path }
+        format.html { redirect_to :back }
         format.js {@message}
       end
     end
