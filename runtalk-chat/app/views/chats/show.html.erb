@@ -2,13 +2,15 @@
   <div class="span12">
     <h1><%= @chat.name.capitalize %></h1>
     <div class="span10 offset1">
+      <ul class="unstyled" id="messages">
+        <%= render partial: "messages/message", collection: @chat.messages %>
+      </ul>
+
       <%= form_for [@chat, Message.new], remote: true,class: "form-search" do |f| %>
         <%= f.text_field :content, placeholder: "chat here...", class: "input-large search-query" %>
         <%= f.submit "Submit", id: 'submit_message', class: "btn btn-info" %>
       <% end %>
-      <ul class="unstyled" id="messages">
-        <%= render partial: "messages/message", collection: @chat.messages %>
-      </ul>
+      
     </div>
   </div>
 </div>

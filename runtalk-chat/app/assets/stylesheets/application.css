@@ -11,3 +11,8 @@
  *= require_self
  *= require_tree .
  */
+
+#messages{
+  height: 500px;
+  overflow: scroll;
+}
