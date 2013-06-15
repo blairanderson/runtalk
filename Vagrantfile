@@ -9,8 +9,6 @@ Vagrant::Config.run do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "runbox"
   config.vm.forward_port 3000, 3000
-  config.vm.forward_port 3001, 3001
-  config.vm.forward_port 5000, 5000
   config.vm.forward_port 9292, 9292
 
   # The url from where the 'config.vm.box' box will be fetched if it
