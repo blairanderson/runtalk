@@ -1,4 +1,4 @@
-<li>
-  <span class="created_at"><%= message.created_at.strftime("%H:%M") %></span>
-  <%= message.content %>
-</li>
+  <li>
+    <span id="created_at" class="pull-left"><%= message.created_at.strftime("%H:%M") %>:  </span>
+    <span class="message_content"><b><%= message.content %></b></span>
+  </li>
