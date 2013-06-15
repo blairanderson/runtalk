@@ -1,20 +1,21 @@
 This Repo holds our Services. It is setup with Vagrant. 
+Make sure the vagrant file is forwarding ports for 3000 and 9292
 
-after cloning, run:
+after cloning, fire up the VM:
 
     $ vagrant up
 
 
-then to get into the VM, run:
+ssh into the VM:
 
     $ vagrant ssh
 
-after you SSH into the VM, type:
+Start the rails server of the main chat application:
 
     $ cd /vagrant/runtalk-chat
     $ rails s
 
-open a new tab and SSH into the same VM
+To start the faye server, open a new tab and SSH in again:
 
     $ vagrant ssh
 
@@ -23,4 +24,3 @@ then start the faye server:
     $ rackup private_pub.ru -s thin -E production
 
 
-Make sure the vagrant file is forwarding ports for 3000 and 9292
