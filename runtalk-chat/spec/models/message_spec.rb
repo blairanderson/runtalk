@@ -4,6 +4,7 @@ describe Message do
   describe 'validations' do 
     it 'must have content' do 
       message = Message.new(content: "valid")
+      message.chat_id = 1
       expect(message).to be_valid
 
       message.content = nil

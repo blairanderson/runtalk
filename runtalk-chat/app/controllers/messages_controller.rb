@@ -6,7 +6,7 @@ class MessagesController < ApplicationController
     
     respond_to do |format|
       if @message.save
-        format.html { redirect_to :back }
+        format.html { redirect_to chat_path(@chat) }
         format.js {@message}
       end
     end

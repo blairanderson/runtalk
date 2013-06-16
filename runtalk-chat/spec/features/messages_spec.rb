@@ -4,7 +4,7 @@ describe "Message" do
 
   describe 'root page' do 
 
-    it 'should have a list of chat messages' do
+    it 'should have a list of chatrooms' do
       chat = create_chat
       expect(chat.name).to eq "Valid Name"
       expect(chat.slug).to eq "validslug"
@@ -15,7 +15,8 @@ describe "Message" do
     end
 
     it 'should have form-input to submit a message' do 
-      visit root_path
+      chat = create_chat
+      visit chat_path(chat)
       expect( page ).to have_field('message_content')
       expect( page ).to have_button('Submit')
     end
