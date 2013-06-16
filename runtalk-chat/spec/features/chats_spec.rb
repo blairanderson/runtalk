@@ -15,4 +15,6 @@ describe Chat do
       expect(page).to have_content valid_name.capitalize
     end
   end
+
+  
 end

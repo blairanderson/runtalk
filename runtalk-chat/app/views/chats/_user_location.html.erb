@@ -1,31 +1,50 @@
 
 <script>
-// if user clicks button to add location. 
-// run this code and 'POST' it to locations#create
-// message has one location 
 function success(position) {
-  
-  var lattitude = position.coords.latitude;
-  var longitude = position.coords.longitude;
-  var accuracy = position.coords.accuracy
+  varLatitude = position.coords.latitude;
+  varLongitude = position.coords.longitude;
+  varAccuracy = position.coords.accuracy;
   console.log(position.coords);
   console.log(position.coords.latitude);
   console.log(position.coords.longitude);
   console.log(position.coords.accuracy);
+
 }
 
 function error(msg) {
   var s = document.querySelector('#status');
   s.innerHTML = typeof msg == 'string' ? msg : "failed";
   s.className = 'fail';
-  
-  // console.log(arguments);
 }
+
+$(document).ready(function() {
+  $(document).on('click','#submit_location', function(e) {
+    e.preventDefault();
+
+  });
+
+  $("#submit_location").on('click', function() {
+    $.ajax({
+      type: "POST",
+      url: '<%= chat_locations_path(@chat) %>',
+      data: { latitude: varLatitude, longitude: varLongitude, accuracy: varAccuracy },
+      dataType: "JSON"
+    });
+    console.log("SUBMITTED TO <%= chat_locations_path(@chat) %>");
+    $("#messages").append("<li>adding location...</li>");
+    });
+});
+
+// if user clicks button to add location. 
+
+// run this code and 'POST' it to locations#create
+// message has one location 
 
 if (navigator.geolocation) {
+  // possibly enable the functionality??
   navigator.geolocation.getCurrentPosition(success, error);
-} else {
+
+} else { 
   error('not supported');
 }
-
 </script>
