@@ -1,0 +1,9 @@
+<h2>Create New Chatroom</h2>
+
+
+<%= simple_form_for @chat do |f| %>
+  <%= f.input :name %>
+  <%= f.input :slug %>
+
+  <%= f.submit 'Create Chatroom' %>
+<% end %>

@@ -6,6 +6,7 @@ gem 'foreman'
 gem 'thin'
 gem 'private_pub'
 gem 'protected_attributes'
+gem 'simple_form'
 # gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
 # gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
 
