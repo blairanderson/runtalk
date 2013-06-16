@@ -40,7 +40,7 @@ describe Chat do
 
         expect(current_path).to eq "/chats/new"
         within("#flash") do
-          expect(page).to have_content("Sorry, this chatroom name has already been taken")
+          expect(page).to have_content("Sorry, this chatroom name/slug has already been taken")
         end
       end
     end

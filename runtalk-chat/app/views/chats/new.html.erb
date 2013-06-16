@@ -1,4 +1,4 @@
-<h2>Create New Chatroom</h2>
+<h2>Create a New Chatroom</h2>
 
 <% if flash[:notice] %>
   <div id='flash'>
@@ -10,5 +10,5 @@
   <%= f.input :name %>
   <%= f.input :slug %>
 
-  <%= f.submit 'Create Chatroom' %>
+  <%= f.submit 'Create Chatroom', class: 'btn' %>
 <% end %>

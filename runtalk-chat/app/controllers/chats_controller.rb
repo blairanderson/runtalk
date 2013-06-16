@@ -19,7 +19,6 @@ class ChatsController < ApplicationController
       redirect_to new_chat_path 
     else
       redirect_to chat_path(chat)
-    end
-    
+    end  
   end
 end
