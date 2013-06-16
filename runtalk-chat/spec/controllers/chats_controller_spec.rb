@@ -15,7 +15,6 @@ describe ChatsController do
   describe 'POST #create' do 
 
     it 'creates a new chatroom' do 
-
       expect { post :create, { name: "example123", slug: "example123" } }.
       to change(Chat, :count).by(1)
     end

@@ -1,5 +1,10 @@
 <h2>Create New Chatroom</h2>
 
+<% if flash[:notice] %>
+  <div id='flash'>
+    <p><%= flash[:notice] %></p>
+  </div>
+<% end %>
 
 <%= simple_form_for @chat do |f| %>
   <%= f.input :name %>

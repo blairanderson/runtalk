@@ -25,11 +25,25 @@ describe Chat do
     end
 
     context 'given the chatroom does exist' do 
+
+      before do 
+        Chat.create(name: "Example123", slug: "example123")
+      end
     
-      it 'informs the user that the chatroom already exists'
+      it 'informs the user that the chatroom already exists' do 
+        
+        visit '/'
+        click_on('Create New Chatroom')
+        fill_in 'Name', :with => "Example123"
+        fill_in 'Slug', :with => "example123"
+        click_button 'Create Chatroom'
 
+        expect(current_path).to eq "/chats/new"
+        within("#flash") do
+          expect(page).to have_content("Sorry, this chatroom name has already been taken")
+        end
+      end
     end
-
   end
 
 

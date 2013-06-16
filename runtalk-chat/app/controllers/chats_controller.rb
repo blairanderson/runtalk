@@ -12,7 +12,14 @@ class ChatsController < ApplicationController
   end
 
   def create
-    @chat = Chat.create!(params[:chat])
-    redirect_to chat_path(@chat)
+    chat = Chat.create(params[:chat])
+
+    if !chat.valid?
+      flash[:notice] = "Sorry, this chatroom name has already been taken"
+      redirect_to new_chat_path 
+    else
+      redirect_to chat_path(chat)
+    end
+    
   end
 end
