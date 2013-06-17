@@ -16,4 +16,20 @@ describe Message do
       expect(message.save).to be_false
     end
   end
+
+  describe '#build_and_validate_location' do 
+    it 'uses location params to create a location' do 
+      chat = create_chat
+      message = chat.messages.create(content: "Adding Location")
+      expect(message).to be_valid
+
+      location_params = {:latitude=>"39.7336161", :longitude=>"-104.9926653", :accuracy=>"71"}
+      location = message.build_and_validate_location(location_params)
+
+      expect( location ).to be_valid
+      expect( location.latitude).to eq "39.7336161"
+      expect( location.longitude).to eq "-104.9926653"
+      expect( location.accuracy).to eq "71"
+    end
+  end
 end
