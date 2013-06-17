@@ -1,6 +1,12 @@
 <li>
   <span id="created_at" class="pull-left"><%= message.created_at.strftime("%H:%M") %>:  </span>
   <span class="message_content"><b><%= message.content %></b></span>
+</br>
+  <% if message.content == "pic" %>
+  <div class="text-right">
+    <%= image_tag "http://placehold.it/200x50", :class => "picture", style: "width: 100%;" %>
+  </div>
+  <% end %>
   <%# if message.location %>
     <%# render the map stuffing %>
   <%# end %>
