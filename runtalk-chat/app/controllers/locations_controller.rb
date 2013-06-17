@@ -3,14 +3,10 @@ class LocationsController < ApplicationController
   def create
     @chat = Chat.find_by_slug(params[:chat_id])
     
-    @message = @chat.messages.create!(content: "Adding Location")
-    
-    if @location = @message.create_location!(location_params)
-      @message.content = "Mapping lat: #{@location.latitude} lon: #{@location.longitude}"
+    @message = @chat.messages.create(content: "Adding Location")
+    if @location = @message.build_and_validate_location(location_params)
       @message.save
     end
-    puts @message.inspect
-    puts @location.inspect
 
     respond_to do |format|
       if @location.persisted?

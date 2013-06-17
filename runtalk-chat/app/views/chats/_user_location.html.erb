@@ -1,13 +1,21 @@
 
 <script>
 function success(position) {
-  varLatitude = position.coords.latitude;
-  varLongitude = position.coords.longitude;
-  varAccuracy = position.coords.accuracy;
+  $("#messages").append("<li>adding location...</li>");
+  var Latitude = position.coords.latitude;
+  var Longitude = position.coords.longitude;
+  var Accuracy = position.coords.accuracy;
   console.log(position.coords);
   console.log(position.coords.latitude);
   console.log(position.coords.longitude);
   console.log(position.coords.accuracy);
+  $.ajax({
+    type: "POST",
+    url: '<%= chat_locations_path(@chat) %>',
+    data: { latitude: Latitude, longitude: Longitude, accuracy: Accuracy },
+    dataType: "JSON"
+  });
+  console.log("SUBMITTED TO <%= chat_locations_path(@chat) %>");
 
 }
 
@@ -18,33 +26,19 @@ function error(msg) {
 }
 
 $(document).ready(function() {
-  $(document).on('click','#submit_location', function(e) {
-    e.preventDefault();
+  $('a#submit_location').css('display', 'none' );
 
-  });
+  if (navigator.geolocation) {
+    $('a#submit_location').css( 'display', 'inline-block' );
 
-  $("#submit_location").on('click', function() {
-    $.ajax({
-      type: "POST",
-      url: '<%= chat_locations_path(@chat) %>',
-      data: { latitude: varLatitude, longitude: varLongitude, accuracy: varAccuracy },
-      dataType: "JSON"
+    $(document).on('click','#submit_location', function(e) {
+      e.preventDefault();
+      // possibly enable the functionality??
+      navigator.geolocation.getCurrentPosition(success, error);
     });
-    console.log("SUBMITTED TO <%= chat_locations_path(@chat) %>");
-    $("#messages").append("<li>adding location...</li>");
-    });
+  } else {
+    $('a#submit_location').css('display', 'none'); 
+    error('not supported');
+  }
 });
-
-// if user clicks button to add location. 
-
-// run this code and 'POST' it to locations#create
-// message has one location 
-
-if (navigator.geolocation) {
-  // possibly enable the functionality??
-  navigator.geolocation.getCurrentPosition(success, error);
-
-} else { 
-  error('not supported');
-}
 </script>
