@@ -29,23 +29,11 @@
 </div>
 <br/>
 
-<div class="navbar-fixed-bottom text-center nav nav-list">
-
-
+<div class="navbar-fixed-bottom nav nav-list">
   <%= form_for [@chat, Message.new], remote: true, class: "form-search" do |f| %>
-
-<div class="row text-center">
-    <span>
-      <%= f.text_field :content, placeholder: "chat here...", :class => "search-query send-message-text" %>
-    </span>
-    <span>
-      <%= f.submit "Send", id: 'submit_message', :class => "btn btn-info" %>
-    </span>
-</div>
-
+    <%= f.text_field :content, placeholder: "chat here...", :class => "search-query send-message-text" %>
+    <%= f.submit "Send", id: 'submit_message', :class => "btn btn-info" %>
   <% end %>
-
-
 </div>
 
 
