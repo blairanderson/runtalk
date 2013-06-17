@@ -8,11 +8,13 @@
 
       <%= form_for [@chat, Message.new], remote: true,class: "form-search" do |f| %>
         <%= f.text_field :content, placeholder: "chat here...", class: "input-large search-query" %>
-        <%= f.submit "Submit", id: 'submit_message', class: "btn btn-info" %>
+          <%= f.submit "Submit", id: 'submit_message', class: "btn btn-info" %>
       <% end %>
       
     </div>
   </div>
 </div>
+
 <%= subscribe_to chat_path(@chat) %>
 <%= render 'user_location'  %>
+
