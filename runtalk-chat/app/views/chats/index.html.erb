@@ -1,4 +1,19 @@
-<h1>HERE'S THE HOME PAGE OF OUR WEBSITE</h1>
+
+<h1 class="text-center">Find a Room</h1>
+<form class="well form-search text-center">
+  <%= form_tag("/search", :method => "get") do %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Search", :class =>"btn btn-info") %>
+  <% end %>
+</form>
+<h1 class="text-center">Create a Room</h1>
+<form class="well form-search text-center">
+  <%= form_tag("/search", :method => "get") do %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Create", :class =>"btn btn-info") %>
+  <% end %>
+</form>
+
 
 <ul>
   <li>search box for chatroom. search box finds or creates a chatroom???</li>

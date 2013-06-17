@@ -1,4 +1,5 @@
 <% publish_to chat_path(@chat) do %>
   $("#messages").append("<%= j render(@message) %>");
+  $('body').scrollTop($('body')[0].scrollHeight);
 <% end %>
 $("#new_message")[0].reset();

@@ -1,18 +1,66 @@
 <div class="row-fluid">
   <div class="span12">
-    <h1><%= @chat.name.capitalize %></h1>
     <div class="span10 offset1">
-      <ul class="unstyled" id="messages">
-        <%= render partial: "messages/message", collection: @chat.messages %>
-      </ul>
 
-      <%= form_for [@chat, Message.new], remote: true,class: "form-search" do |f| %>
-        <%= f.text_field :content, placeholder: "chat here...", class: "input-large search-query" %>
-        <%= f.submit "Submit", id: 'submit_message', class: "btn btn-info" %>
-      <% end %>
-      
+<div class="navbar-fixed-top">
+  <div class="navbar-inner">
+    <a class="chat-name text-center"><%= @chat.name.capitalize %></a>
+    <ul class="nav">
+      <li>
+        <div class="btn-group pull-right">
+          <%= link_to '#', :class => "btn btn-success", :id => "submit_photo" do %>
+            <i class="icon-camera icon-white"></i>
+          <% end %>
+          <%= link_to "#", :class => "btn btn-info", :id => "submit_location" do %>
+            <i class="icon-map-marker icon-white"></i>
+          <% end %>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="chat-window span12">
+    <ul class="nav nav-list" id="messages">
+      <%= render partial: "messages/message", collection: @chat.messages %>
+    </ul>
+  </div>
+</div>
+<br/>
+
+<div class="navbar-fixed-bottom text-center nav nav-list">
+
+
+  <%= form_for [@chat, Message.new], remote: true, class: "form-search" do |f| %>
+
+<div class="row text-center">
+    <span>
+      <%= f.text_field :content, placeholder: "chat here...", :class => "search-query send-message-text" %>
+    </span>
+    <span>
+      <%= f.submit "Send", id: 'submit_message', :class => "btn btn-info" %>
+    </span>
+</div>
+
+  <% end %>
+
+
+</div>
+
+
+
+
     </div>
   </div>
 </div>
+
+
 <%= subscribe_to chat_path(@chat) %>
 <%= render 'user_location'  %>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('body').scrollTop($('body')[0].scrollHeight);
+});
+</script>

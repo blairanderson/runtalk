@@ -15,3 +15,8 @@
 //= require turbolinks
 //= require private_pub
 //= require_tree .
+
+
+$(document).ready(function() {
+  $('body').scrollTop($('body')[0].scrollHeight);
+});
