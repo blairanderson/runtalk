@@ -2,12 +2,11 @@
   <span id="created_at" class="pull-left"><%= message.created_at.strftime("%H:%M") %>:  </span>
   <span class="message_content"><b><%= message.content %></b></span>
 </br>
-  <% if message.content == "pic" %>
+  <% if message.location %>
   <div class="text-right">
-    <%= image_tag "http://placehold.it/200x50", :class => "picture", style: "width: 100%;" %>
+    <%= link_to message.location.google_map_url do %>
+    <%= image_tag (message.location.map_url || "http://placehold.it/200x50"), :class => "picture", style: "width: 100%; max-width: 600px;" %>
+    <% end %>
   </div>
   <% end %>
-  <%# if message.location %>
-    <%# render the map stuffing %>
-  <%# end %>
 </li>

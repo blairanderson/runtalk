@@ -1,31 +1,44 @@
 
 <script>
-// if user clicks button to add location. 
-// run this code and 'POST' it to locations#create
-// message has one location 
 function success(position) {
-  
-  var lattitude = position.coords.latitude;
-  var longitude = position.coords.longitude;
-  var accuracy = position.coords.accuracy
+  $("#messages").append("<li>adding location...</li>");
+  var Latitude = position.coords.latitude;
+  var Longitude = position.coords.longitude;
+  var Accuracy = position.coords.accuracy;
   console.log(position.coords);
   console.log(position.coords.latitude);
   console.log(position.coords.longitude);
   console.log(position.coords.accuracy);
+  $.ajax({
+    type: "POST",
+    url: '<%= chat_locations_path(@chat) %>',
+    data: { latitude: Latitude, longitude: Longitude, accuracy: Accuracy },
+    dataType: "JSON"
+  });
+  console.log("SUBMITTED TO <%= chat_locations_path(@chat) %>");
+
 }
 
 function error(msg) {
   var s = document.querySelector('#status');
   s.innerHTML = typeof msg == 'string' ? msg : "failed";
   s.className = 'fail';
-  
-  // console.log(arguments);
 }
 
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(success, error);
-} else {
-  error('not supported');
-}
+$(document).ready(function() {
+  $('a#submit_location').css('display', 'none' );
 
+  if (navigator.geolocation) {
+    $('a#submit_location').css( 'display', 'inline-block' );
+
+    $(document).on('click','#submit_location', function(e) {
+      e.preventDefault();
+      // possibly enable the functionality??
+      navigator.geolocation.getCurrentPosition(success, error);
+    });
+  } else {
+    $('a#submit_location').css('display', 'none'); 
+    error('not supported');
+  }
+});
 </script>
