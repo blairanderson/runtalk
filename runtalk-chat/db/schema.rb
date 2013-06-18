@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130617211128) do
+ActiveRecord::Schema.define(version: 20130617222646) do
 
   create_table "chats", force: true do |t|
     t.string   "slug"
@@ -43,5 +43,14 @@ ActiveRecord::Schema.define(version: 20130617211128) do
 
   add_index "messages", ["chat_id"], name: "index_messages_on_chat_id"
   add_index "messages", ["user_id"], name: "index_messages_on_user_id"
+
+  create_table "users", force: true do |t|
+    t.string   "username",         null: false
+    t.string   "email"
+    t.string   "crypted_password"
+    t.string   "salt"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
