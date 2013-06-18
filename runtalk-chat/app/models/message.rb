@@ -8,6 +8,16 @@ class Message < ActiveRecord::Base
   has_one :location, dependent: :destroy, autosave: true
   has_one :photo, dependent: :destroy, autosave: true
 
+  def self.build_location_for_chat(location, chat)
+    message = Message.new
+    message.chat_id = chat.id
+    message.content = "Mapping your location"
+    message.save
+    location = message.create_location(location)
+    message
+  end
+
+
   def build_and_validate_location(location)
     if location = self.create_location(location)
       location.build_formatted_address

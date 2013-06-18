@@ -1,6 +1,12 @@
 require 'spec_helper'
 
 describe Message do
+  let(:chat){create_chat}
+  
+  before :each do 
+    expect(chat).to be_valid
+  end
+
   describe 'validations' do 
     it 'must have content' do 
       message = Message.new(content: "valid")
@@ -19,13 +25,13 @@ describe Message do
 
   describe '#build_and_validate_location' do 
     it 'uses location params to create a location' do 
-      chat = create_chat
-      message = chat.messages.create(content: "Adding Location")
+      expect(chat).to be_valid
+      location_params = {:latitude=>"39.7336161", :longitude=>"-104.9926653", :accuracy=>"71"}
+
+      message = Message.build_location_for_chat(location_params, chat)
       expect(message).to be_valid
 
-      location_params = {:latitude=>"39.7336161", :longitude=>"-104.9926653", :accuracy=>"71"}
-      location = message.build_and_validate_location(location_params)
-
+      location = message.location 
       expect( location ).to be_valid
       expect( location.latitude).to eq "39.7336161"
       expect( location.longitude).to eq "-104.9926653"

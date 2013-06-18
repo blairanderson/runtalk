@@ -6,7 +6,7 @@ RuntalkChat::Application.routes.draw do
   resources :chats do 
     resources :messages
     resources :locations, only: [:new, :create]
-    resources :photos, only: [:new, :create]
+    resources :photos, only: [:create]
   end
   
   # You can have the root of your site routed with "root"

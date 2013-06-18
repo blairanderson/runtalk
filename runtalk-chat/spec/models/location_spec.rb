@@ -11,6 +11,22 @@ describe Location do
     location
   end
 
+  describe 'validations' do 
+    it 'latitude should only consist of numerical chars' do 
+      expect(location).to be_valid
+
+      location.latitude = "TACO"
+      expect(location).to be_invalid
+    end
+    
+    it 'longitude should only consist of numerical chars' do 
+      expect(location).to be_valid
+
+      location.longitude = "TACO"
+      expect(location).to be_invalid
+    end
+  end
+
   describe '#build_formatted_address' do 
     it 'should return an address from a latlon' do 
       expect(location).to be_valid

@@ -1,8 +1,11 @@
 class Location < ActiveRecord::Base
   attr_accessible :latitude, :longitude, :accuracy
 
-  validates :message_id, presence: true
+  validates :latitude, :numericality => true
+  validates :longitude, :numericality => true 
+
   belongs_to :message
+  validates :message_id, presence: true
 
   after_create :build_map_url
 
