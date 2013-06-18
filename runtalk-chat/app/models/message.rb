@@ -6,6 +6,7 @@ class Message < ActiveRecord::Base
   belongs_to :chat
 
   has_one :location, dependent: :destroy, autosave: true
+  has_one :photo, dependent: :destroy, autosave: true
 
   def build_and_validate_location(location)
     if location = self.create_location(location)
