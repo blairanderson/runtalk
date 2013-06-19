@@ -9,8 +9,4 @@ describe UserMailer do
       expect(mail.to).to eq ["yolo@example.com"]
     end
   end
-
-
-
-
 end

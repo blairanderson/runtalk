@@ -21,7 +21,7 @@ class UsersController < ApplicationController
     user = User.find_by_email(params[:user][:email])
 
     if user
-      puts "found"
+      UserMailer.send_registered_user_invitation(user.email)
     else
       UserMailer.send_invitation(params[:user][:email])
     end
