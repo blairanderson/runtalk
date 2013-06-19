@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://maps.googleapis.com/maps/api/geocode/json?language=en&latlng=39.733588399999995,-104.99257290000001&sensor=false
+    uri: http://maps.googleapis.com/maps/api/geocode/json?language=en&latlng=39.7336161,-104.9926653&sensor=false
     body:
       encoding: US-ASCII
       string: ''
@@ -21,9 +21,9 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Wed, 19 Jun 2013 14:27:52 GMT
+      - Wed, 19 Jun 2013 21:33:18 GMT
       Expires:
-      - Thu, 20 Jun 2013 14:27:52 GMT
+      - Thu, 20 Jun 2013 21:33:18 GMT
       Cache-Control:
       - public, max-age=86400
       Access-Control-Allow-Origin:
@@ -186,5 +186,5 @@ http_interactions:
         \              }\n            }\n         },\n         \"types\" : [ \"country\",
         \"political\" ]\n      }\n   ],\n   \"status\" : \"OK\"\n}\n"
     http_version: 
-  recorded_at: Wed, 19 Jun 2013 14:27:52 GMT
+  recorded_at: Wed, 19 Jun 2013 21:33:15 GMT
 recorded_with: VCR 2.5.0

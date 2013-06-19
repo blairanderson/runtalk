@@ -5,7 +5,7 @@ class Location < ActiveRecord::Base
   validates :longitude, :numericality => true 
 
   belongs_to :message
-  validates :message_id, presence: true
+  validates_presence_of :message_id
 
   after_create :build_map_url
 
