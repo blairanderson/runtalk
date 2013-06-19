@@ -11,4 +11,21 @@ class UsersController < ApplicationController
       render :new, :notice => "Sorry, invalid credentials"
     end
   end
+
+  def add 
+    @chat_id = params[:chat_id]
+    @user = User.new
+  end
+
+  def invite
+    user = User.find_by_email(params[:user][:email])
+
+    if user
+      puts "found"
+    else
+      UserMailer.send_invitation(params[:user][:email])
+    end
+
+    redirect_to chat_path(params[:user][:chat_id])
+  end
 end

@@ -12,4 +12,8 @@ RuntalkChat::Application.routes.draw do
 
   resource :users
 
+  post "users/add"
+  get "users/add"
+  post "users/invite"
+
 end
