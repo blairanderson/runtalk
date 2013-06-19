@@ -19,7 +19,9 @@ describe LocationsController do
     end
     
     it "creates a message and location with valid params" do
-      post :create, valid_params
+      VCR.use_cassette("location_controller") do 
+        post :create, valid_params
+      end
       expect(Location.count).to eq 1
       expect(Location.first.latitude).to eq valid_latitude
       expect(Location.first.longitude).to eq valid_longitude

@@ -37,5 +37,9 @@ describe Message do
       expect( location.longitude).to eq "-104.9926653"
       expect( location.accuracy).to eq "71"
     end
+
+    it 'does not build a location with bad params' do 
+
+    end
   end
 end
