@@ -1,2 +1,15 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h2>Create an Account</h2>
+
+<% if flash[:notice] %>
+  <div id='flash'>
+    <p><%= flash[:notice] %></p>
+  </div>
+<% end %>
+
+<%= simple_form_for @user do |f| %>
+  <%= f.input :username %>
+  <%= f.input :email %>
+  <%= f.input :password %>
+
+  <%= f.submit 'Create Account', class: 'btn' %>
+<% end %>

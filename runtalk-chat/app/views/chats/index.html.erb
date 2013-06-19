@@ -1,3 +1,9 @@
+<% if flash[:notice] %>
+  <div id='flash'>
+    <p><%= flash[:notice] %></p>
+  </div>
+<% end %>
+
 <div class="row-fluid">
   <h1 class="text-center">Welcome to RunTalk</h1>
   <div >
@@ -29,3 +35,5 @@
 </ul>
 
 <%= link_to "Create New Chatroom", :action => "new" %>
+
+<%= link_to "Sign Up", new_users_path %>

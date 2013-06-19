@@ -6,9 +6,9 @@ class UsersController < ApplicationController
   def create
     @user = User.create(params[:user])
     if @user.valid?
-      redirect_to root_url, :notice => "Signed up!"
+      redirect_to root_url, :notice => "Account created"
     else
-      render :new
+      render :new, :notice => "Sorry, invalid credentials"
     end
   end
 end
