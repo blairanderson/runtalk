@@ -14,17 +14,18 @@ class Message < ActiveRecord::Base
     message.content = "Mapping your location"
     message.save
     location = message.create_location(location)
+    message.content = "mapping... #{location.formatted_address}"
+    message.save
     message
   end
 
-
-  def build_and_validate_location(location)
-    if location = self.create_location(location)
-      location.build_formatted_address
-      self.content = "mapping... #{location.formatted_address}"
-      location
-    else
-      return false
-    end
+  def self.build_photo_for_chat(photo, chat)
+    message = Message.new
+    message.chat_id = chat.id
+    message.content = "photo contents"
+    message.save
+    photo = message.create_photo(photo)
+    message
   end
+
 end

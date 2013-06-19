@@ -2,20 +2,18 @@ class PhotosController < ApplicationController
   def create
     @chat = Chat.find_by_slug(params[:chat_id])
     
-    @message = @chat.messages.create(content: "Adding Photo")
-    if @photo = @message.build_photo
-      @photo.photo_url = params[:filepicker_url]
-      @photo.save
-    end
-
     respond_to do |format|
-      if @photo.persisted?
+      if @message =  Message.build_photo_for_chat(photo_params, @chat)
         format.html { redirect_to chat_path(@chat) }
         format.js {@message}
       end
     end
+
   end
-  
+
+  def photo_params
+    {photo_url: params[:photo_url]}
+  end  
 end
 
 

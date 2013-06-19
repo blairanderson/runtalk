@@ -2,27 +2,35 @@ require 'spec_helper'
 
 describe Photo do
   let(:chat){create_chat}
-  let(:message)do
-    message = Message.new
-    message.content = "this is great"
-    message.chat_id = chat.id
-    message.save
-    message
-  end
+  let(:message){create_message}
 
   let(:photo)do
-    photo = Photo.new
-    photo.photo_url = "http://www.google.com/image.png"
+    photo = new_photo
     photo.message_id = message.id
     photo.save
     photo  
   end
 
+  before :each do 
+    expect(chat).to be_valid
+    expect(message).to be_valid
+    expect(photo).to be_valid
+  end
+
   describe 'validations' do 
-    it 'should have a url' do 
+    it 'must have a url' do 
       expect(photo).to be_valid
+      expect(photo.photo_url).to eq "http://www.google.com/image.png"
 
       photo.photo_url = nil
+      expect(photo).to be_invalid
+    end
+
+    it 'is invalid without a URL' do 
+      expect(photo).to be_valid
+      expect(photo.photo_url).to eq "http://www.google.com/image.png"
+
+      photo.photo_url = "taco"
       expect(photo).to be_invalid
     end
 
@@ -33,4 +41,5 @@ describe Photo do
       expect(photo).to be_invalid
     end
   end
+
 end

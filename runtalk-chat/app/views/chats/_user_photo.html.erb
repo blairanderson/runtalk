@@ -7,7 +7,7 @@ $(document).on('click','#submit_photo', function(e) {
     $.ajax({
         type: "POST",
         url: '<%= chat_photos_path(@chat) %>',
-        data: { filepicker_url: FPFile.url },
+        data: { photo_url: FPFile.url },
         dataType: "JSON"
       });
     console.log('<%= chat_photos_path(@chat) %>');

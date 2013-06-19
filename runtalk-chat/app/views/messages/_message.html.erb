@@ -12,8 +12,8 @@
 
   <% if message.photo %>
   <div class="text-right">
-    <%= link_to message.photo.filepicker_url, id:message.id, target: "blank" do %>
-    <%= image_tag (message.photo.filepicker_url || "http://placehold.it/200x50"), id: message.photo.id ,:class => "picture", style: "width: 100%; max-width: 600px;" %>
+    <%= link_to message.photo.photo_url, id:message.id, target: "blank" do %>
+    <%= image_tag (message.photo.photo_url || "http://placehold.it/200x50"), id: message.photo.id ,:class => "picture", style: "width: 100%; max-width: 600px;" %>
     <% end %>
   </div>
   <% end %>

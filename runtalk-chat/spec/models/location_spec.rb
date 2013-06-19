@@ -58,29 +58,7 @@ describe Location do
     expect(location).to be_invalid
   end
 
-  it 'should be destroyed if the message is deleted' do 
-    VCR.use_cassette("destroy_location_if_message_destroyed") do 
-      content = "1062 Delaware Street, Denver, CO 80204, USA"
-      message = Message.new(content: content)
-      message.chat_id = 1
-      message.save
-      expect(message).to be_valid
-
-      location_params = {
-        latitude: "39.733588399999995",
-        longitude: "-104.99257290000001",
-        accuracy: "26"
-      }
-      location = message.build_and_validate_location(location_params)
-      expect(location).to be_valid
-      expect(Location.count).to eq 1
-
-      message.destroy
-
-      expect(Message.count).to eq 0
-      expect(Location.count).to eq 0
-    end
-  end
+  it 'should be destroyed if the message is deleted'
 
   it 'is invalid without latitude and longitude'
 end
