@@ -10,6 +10,7 @@ gem 'simple_form'
 gem 'geocoder'
 gem 'static_map'
 gem 'sorcery'
+gem 'filepicker-rails'
 
 # gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
 # gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
@@ -21,7 +22,11 @@ group :development, :test do
   gem 'rspec-rails', '~> 2.0'
   gem 'capybara'
   gem 'guard-rspec'
+end
+
+group :test do 
   gem 'vcr'
+  gem 'webmock'
 end
 
 group :development do 

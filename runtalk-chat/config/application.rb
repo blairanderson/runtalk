@@ -13,6 +13,8 @@ Bundler.require(:default, Rails.env)
 
 module RuntalkChat
   class Application < Rails::Application
+    config.filepicker_rails.api_key = "ATFoeiGnQaaeVBDya6odlz"
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

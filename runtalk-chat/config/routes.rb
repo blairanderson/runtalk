@@ -5,6 +5,7 @@ RuntalkChat::Application.routes.draw do
     resources :messages
     resources :locations, only: [:new, :create]
     resource :invitations, only: [:new, :create ]
+    resources :photos, only: [:create]
   end
 
   resource :users

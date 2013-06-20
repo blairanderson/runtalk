@@ -56,6 +56,15 @@ ActiveRecord::Schema.define(version: 20130620174517) do
   add_index "messages", ["chat_id"], name: "index_messages_on_chat_id"
   add_index "messages", ["user_id"], name: "index_messages_on_user_id"
 
+  create_table "photos", force: true do |t|
+    t.string   "photo_url"
+    t.integer  "message_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "photos", ["message_id"], name: "index_photos_on_message_id"
+
   create_table "users", force: true do |t|
     t.string   "username",         null: false
     t.string   "email"
