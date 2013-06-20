@@ -7,7 +7,6 @@ describe User do
     context "a user is registered" do 
 
       it "signs in the user" do 
-
         user = User.create(username: "yo", email: "yolo@example.com", password: "a_password")
 
         visit "/"

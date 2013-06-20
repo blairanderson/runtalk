@@ -3,7 +3,6 @@ class SessionsController < ApplicationController
   end
 
   def create
-
     user = login(params[:username], 
                  params[:password],
                  remember_me = false)
@@ -12,8 +11,6 @@ class SessionsController < ApplicationController
       redirect_to root_path, :notice => "Signed In"
     else
       redirect_to new_sessions_path, :notice => "Invalid credentials"
-    end
-
-    
+    end  
   end
 end

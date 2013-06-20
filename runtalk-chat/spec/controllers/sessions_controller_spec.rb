@@ -24,7 +24,6 @@ describe SessionsController do
     context "user enters invalid credentials" do 
 
       it "does not log in the user" do 
-
         post :create, { username: "jo", password: "a_password" }
 
         expect(controller.current_user).to be_false
