@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130617222646) do
+ActiveRecord::Schema.define(version: 20130620174517) do
 
   create_table "chats", force: true do |t|
     t.string   "slug"
@@ -19,6 +19,18 @@ ActiveRecord::Schema.define(version: 20130617222646) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "invitations", force: true do |t|
+    t.integer  "user_id"
+    t.string   "user_email"
+    t.integer  "chat_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "unique_url"
+  end
+
+  add_index "invitations", ["chat_id"], name: "index_invitations_on_chat_id"
+  add_index "invitations", ["user_id"], name: "index_invitations_on_user_id"
 
   create_table "locations", force: true do |t|
     t.integer  "message_id"

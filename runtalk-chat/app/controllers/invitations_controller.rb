@@ -1,19 +1,15 @@
 class InvitationsController < ApplicationController
 
   def new 
-    @chat_id = params[:chat_id]
+    @chat = Chat.find_by_slug(params[:chat_id])
     @invitation = Invitation.new
   end
 
   def create
-    user = User.find_by_email(params[:email])
+    @chat = Chat.find_by_slug(params[:chat_id])
 
-    if user
-      UserMailer.send_registered_user_invitation(user.email)
-    else
-      UserMailer.send_invitation(params[:email])
-    end
-
-    redirect_to chat_path(params[:chat_id])
+    Invitation.create(params).send_email
+    
+    redirect_to chat_path(@chat)
   end
 end

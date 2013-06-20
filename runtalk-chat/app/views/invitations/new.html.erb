@@ -1,13 +1,10 @@
 <h2>Add a User</h2>
 
 
-<%= form_tag invitations_path do %>
+<%= form_tag chat_invitations_path(@chat) do %>
   <div class="field">
     <%= label_tag :email %>
     <%= text_field_tag :email, params[:email] %>
-  </div>
-  <div class="field">
-    <%= hidden_field_tag :chat_id, @chat_id %>
   </div>
 
   <div class="actions"><%= submit_tag "Send Invitation" %></div>

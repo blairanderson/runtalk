@@ -12,12 +12,13 @@ describe User do
 
         User.create(username: "yo", email: "yolo@example.com", password: "a_password")
 
-        (UserMailer).should_receive(:send_registered_user_invitation)
-
         visit '/chats/whatever'
-        click_on "Invite Another User"
+        click_on "invite_user"
         fill_in "Email", :with => "yolo@example.com"
         click_on "Send Invitation"
+
+        expect(Invitation.count).to eq 1
+        expect(current_path).to eq '/chats/whatever'
       end
     end
 
@@ -25,13 +26,13 @@ describe User do
 
       it "sends an email notifying the user" do 
 
-        (UserMailer).should_receive(:send_invitation)
-
         visit '/chats/whatever'
-        click_on "Invite Another User"
+        click_on "invite_user"
         fill_in "Email", :with => "yolo@example.com"
         click_on "Send Invitation"
 
+        expect(Invitation.count).to eq 1
+        expect(current_path).to eq '/chats/whatever'
       end
     end
   end

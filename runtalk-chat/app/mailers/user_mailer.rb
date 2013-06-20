@@ -2,11 +2,13 @@ class UserMailer < ActionMailer::Base
 
   default :from => "our_app@app.com"
 
-  def send_invitation(email)
-    mail to: email
+  def unregistered_invitation(invitation)
+    @invitation = invitation
+    mail to: @invitation.user_email
   end
 
-  def send_registered_user_invitation(user_email)
-    mail to: user_email
+  def send_registered_user_invitation(invitation)
+    @invitation = invitation
+    mail to: @invitation.user_email
   end
 end
