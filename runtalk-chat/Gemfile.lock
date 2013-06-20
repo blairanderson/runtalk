@@ -232,6 +232,7 @@ DEPENDENCIES
   jquery-rails
   private_pub
   protected_attributes
+  pry
   rails (= 4.0.0.rc1)
   rspec-rails (~> 2.0)
   sass-rails (~> 4.0.0.rc1)

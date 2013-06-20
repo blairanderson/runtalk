@@ -30,10 +30,13 @@ describe LocationsController do
       expect(Message.first.content).to eq "mapping... 1062 Delaware Street, Denver, CO 80204, USA"
     end
 
-    xit 'does not create message or location when bad params are submitted' do 
+    it 'does not create message or location when bad params are submitted' do 
+      expect(Message.count).to eq 0
+      
       post :create, invalid_params
       expect(Location.count).to eq 0
       expect(Message.count).to eq 0
+      
     end
   end
 end
