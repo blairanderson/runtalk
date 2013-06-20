@@ -1,5 +1,11 @@
 <h1>Log In</h1>
 
+<% if flash[:notice] %>
+  <div id='flash'>
+    <p><%= flash[:notice] %></p>
+  </div>
+<% end %>
+
 <%= form_tag sessions_path do %>
   <div class="field">
     <%= label_tag :username %>

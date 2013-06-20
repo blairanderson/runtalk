@@ -13,7 +13,7 @@ describe User do
         visit "/"
         click_on "Log In"
 
-        fill_in "Username", :with => "yolo@example.com"
+        fill_in "Username", :with => "yo"
         fill_in "Password", :with => "a_password"
         click_on "Log in"
 
@@ -21,15 +21,25 @@ describe User do
         within("#flash") do 
           expect(page).to have_content("Signed In")
         end
-
-        expect(current_user).to eq user
-
       end
     end
 
     context "a user is not registered" do 
 
-      it "does not sign in the user"
+      it "does not sign in the user" do 
+
+        visit "/"
+        click_on "Log In"
+
+        fill_in "Username", :with => "jo"
+        fill_in "Password", :with => "a_password"
+        click_on "Log in"
+
+        expect(current_path).to eq "/sessions/new"
+        within("#flash") do 
+          expect(page).to have_content("Invalid credentials")
+        end
+      end 
     end
   end
 end

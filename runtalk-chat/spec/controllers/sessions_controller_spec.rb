@@ -28,10 +28,8 @@ describe SessionsController do
         post :create, { username: "jo", password: "a_password" }
 
         expect(controller.current_user).to be_false
-
         expect(flash[:notice]).to eq "Invalid credentials"
       end
     end
   end
-
 end
