@@ -17,6 +17,6 @@ RuntalkChat::Application.routes.draw do
   get "users/add"
   post "users/invite"
 
-  resource :sessions
+  resource :sessions, only: [:new, :create]
 
 end

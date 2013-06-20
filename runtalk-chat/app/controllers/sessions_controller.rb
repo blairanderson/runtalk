@@ -9,11 +9,11 @@ class SessionsController < ApplicationController
                  remember_me = false)
 
     if user
-      puts "hello"
+      redirect_to root_path
     else
-      puts "no user"
+      redirect_to new_sessions_path, :notice => "Invalid credentials"
     end
 
-    redirect_to root_path
+    
   end
 end
