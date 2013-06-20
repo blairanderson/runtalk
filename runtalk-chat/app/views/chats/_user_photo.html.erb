@@ -1,0 +1,18 @@
+<script type="text/javascript">
+$(document).on('click','#submit_photo', function(e) {
+  e.preventDefault();
+  $('a#submit_photo').on('click', function() {
+    filepicker.pick(function(FPFile){
+    console.log(FPFile.url);
+    $.ajax({
+        type: "POST",
+        url: '<%= chat_photos_path(@chat) %>',
+        data: { photo_url: FPFile.url },
+        dataType: "JSON"
+      });
+    console.log('<%= chat_photos_path(@chat) %>');
+    $('body').scrollTop($('body')[0].scrollHeight);
+    });
+  });
+});
+</script>

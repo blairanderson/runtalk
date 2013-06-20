@@ -3,13 +3,8 @@ class LocationsController < ApplicationController
   def create
     @chat = Chat.find_by_slug(params[:chat_id])
     
-    @message = @chat.messages.create(content: "Adding Location")
-    if @location = @message.build_and_validate_location(location_params)
-      @message.save
-    end
-
     respond_to do |format|
-      if @location.persisted?
+      if @message = Message.build_location_for_chat(location_params, @chat)
         format.html { redirect_to chat_path(@chat) }
         format.js {@message}
       end
