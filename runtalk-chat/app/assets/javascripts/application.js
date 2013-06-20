@@ -17,6 +17,10 @@
 //= require_tree .
 
 
+$(window).load(function(){
+  $('body').delay(5000).scrollTop($('body')[0].scrollHeight);
+});
+
 $(document).ready(function() {
-  $('body').scrollTop($('body')[0].scrollHeight);
+  filepicker.setKey('ATFoeiGnQaaeVBDya6odlz');
 });
