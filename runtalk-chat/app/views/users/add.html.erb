@@ -1,0 +1,11 @@
+<h2>Add a User</h2>
+
+<%= simple_form_for @user, :url => users_invite_path, :method => :post  do |f| %>
+  <%= f.input :email %>
+
+  <%= f.hidden_field :chat_id, :value => @chat_id %>
+
+  <%= f.submit 'Send Invitation', class: 'btn' %>
+<% end %>
+
+
