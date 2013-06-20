@@ -16,9 +16,8 @@ class Invitation < ActiveRecord::Base
 private
 
   def generate_unique_url
-    begin
-      self.unique_url = SecureRandom.urlsafe_base64(16)
-    end while self.class.exists?(unique_url: unique_url)
+    self.unique_url = SecureRandom.urlsafe_base64(16)
+    self.save
   end
 
 end
