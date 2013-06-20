@@ -1,4 +1,4 @@
-<%= button_to "Invite Another User", users_add_path(chat_id: @chat.slug) %>
+<%= link_to "Invite Another User", new_invitations_path(chat_id: @chat.slug) %>
 
 <div class="row-fluid">
   <div class="span12">
