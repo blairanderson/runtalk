@@ -2,6 +2,7 @@ class ChatsController < ApplicationController
 
   def index
     @chat = Chat.new
+    @search_data = Chat.all.map(&:slug)
   end
 
   def show
@@ -17,9 +18,9 @@ class ChatsController < ApplicationController
 
     if !chat.valid?
       flash[:notice] = "Sorry, this chatroom name has already been taken"
-      redirect_to new_chat_path 
+      redirect_to new_chat_path
     else
       redirect_to chat_path(chat)
-    end  
+    end
   end
 end
