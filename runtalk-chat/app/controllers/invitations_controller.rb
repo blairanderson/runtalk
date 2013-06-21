@@ -5,7 +5,7 @@ class InvitationsController < ApplicationController
     @invitation = Invitation.new
   end
 
-  def create
+  def create 
     @chat = Chat.find_by_slug(params[:chat_id])
 
     Invitation.create(params).send_email

@@ -28,7 +28,9 @@ form#new_message{
 #message-window {
   margin-bottom: 50px;
   word-wrap: break-word;
+  margin-left: 1px;
 }
+
 
 #messages > li{
   word-wrap: break-word;
