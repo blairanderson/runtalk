@@ -1,5 +1,6 @@
 <% publish_to chat_path(@chat) do %>
   $("#messages").append("<%= j render(@message) %>");
   $('body').scrollTop($('body')[0].scrollHeight);
+  convertTime($('.message_created_at').last());
 <% end %>
 $("#new_message")[0].reset();

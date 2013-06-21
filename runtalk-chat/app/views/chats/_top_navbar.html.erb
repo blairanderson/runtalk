@@ -1,0 +1,17 @@
+<div class="navbar-fixed-top">
+  <div class="navbar-inner">
+    <a class="chat-name text-center"><%= @chat.name.capitalize %></a>
+    <ul class="nav">
+      <li>
+        <div class="btn-group pull-right">
+          <%= link_to '#', :class => "btn btn-success", :id => "submit_photo" do %>
+            <i class="icon-camera icon-white"></i>
+          <% end %>
+          <%= link_to "#", :class => "btn btn-info", :id => "submit_location" do %>
+            <i class="icon-map-marker icon-white"></i>
+          <% end %>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
