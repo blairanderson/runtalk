@@ -12,9 +12,9 @@ describe Chat do
       it 'creates a new chatroom' do 
 
         visit '/'
-        click_on('Create New Chatroom')
-        fill_in 'Name', :with => "Example123"
-        fill_in 'Slug', :with => "example123"
+
+        fill_in 'name', :with => "Example123"
+        click_button 'Create'
         click_button 'Create Chatroom'
 
         expect(current_path).to eq "/chats/example123"
@@ -33,11 +33,11 @@ describe Chat do
       it 'informs the user that the chatroom already exists' do 
         
         visit '/'
-        click_on('Create New Chatroom')
-        fill_in 'Name', :with => "Example123"
-        fill_in 'Slug', :with => "example123"
-        click_button 'Create Chatroom'
 
+        fill_in 'name', :with => "Example123"
+        click_button 'Create'
+        click_button 'Create Chatroom'
+        
         expect(current_path).to eq "/chats/new"
         within("#flash") do
           expect(page).to have_content("Sorry")

@@ -9,6 +9,7 @@ gem 'protected_attributes'
 gem 'simple_form'
 gem 'geocoder'
 gem 'static_map'
+gem 'sorcery'
 gem 'filepicker-rails'
 
 # gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
