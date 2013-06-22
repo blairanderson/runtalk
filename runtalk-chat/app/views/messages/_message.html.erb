@@ -6,8 +6,8 @@
     <div class="single-message span10">
       <span class="message_content">
         <span class="pull-left"><b>username:</b></span>
-        <span class="pull-left message_created_at">
-          <%= message.created_at %>
+        <span class="pull-right message_created_at" data-date="<%= message.created_at.to_time.iso8601 %>">
+          <%= message.created_at.to_time.iso8601 %>
         </span>
         <span><br><%= message.content %></span>
       </span>

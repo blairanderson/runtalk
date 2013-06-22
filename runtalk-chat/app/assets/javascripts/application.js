@@ -16,6 +16,12 @@
 //= require private_pub
 //= require_tree .
 
+var convertTime = function(selector) {
+  var currentTime = selector.data('date');
+  var newTime = new Date(currentTime);
+  selector.html(newTime.toString('dddd, h:mm tt'));
+};
+
 
 $(window).load(function(){
   $('body').delay(5000).scrollTop($('body')[0].scrollHeight);
@@ -23,15 +29,9 @@ $(window).load(function(){
 
 $(document).ready(function() {
   filepicker.setKey('ATFoeiGnQaaeVBDya6odlz');
-
   $('.message_created_at').each(function( index ) {
     convertTime($(this));
   });
 
 });
 
-var convertTime = function(selector) {
-  var currentTime = new Date(selector.text());
-  var newTime = currentTime.toString("dddd, h:mm tt");
-  selector.text(newTime);
-};
