@@ -2,21 +2,19 @@ class Text
 
   attr_reader :phone_number
 
-  def send_registered_user_invitation(invitation)
-    message_body = "You have been invited to RunTalk. Visit localhost:3000/users/new?activation_key=#{invitation.unique_url}"
-    send_message(@invitation.user_email, message_body)
+  def initialize(phone_number)
+    @phone_number = phone_number
   end
 
-
-  def unregistered_invitation(invitation)
-    @invitation = invitation
+  def send_invitation(invitation)
     message_body = "You have been invited to RunTalk. Visit localhost:3000/#{invitation.chat_id} to join."
-    send_message(@invitation.user_email, message_body)
+    send_message(phone_number, message_body)
   end
 
   private
   
   def send_message(phone_number, message)
+
     client.account.sms.messages.create(
       :from => "+#{twilio_phone_number}", 
       :to => phone_number,

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     @invitation = Invitation.find_by_unique_url(params[:activation_key])
 
     if @invitation
-      @user = User.new(email: @invitation.user_email)
+      @user = User.new
     else
       @user = User.new
     end
