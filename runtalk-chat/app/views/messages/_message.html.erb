@@ -1,21 +1,32 @@
 <li>
-  <span id="created_at" class="pull-left"><%= message.created_at.strftime("%H:%M") %>:  </span>
-  <span class="message_content"><b><%= message.content %></b></span>
-</br>
-  <% if message.location %>
-  <div class="text-right">
-    <%= link_to message.location.google_map_url, target: "blank" do %>
-    <%= image_tag (message.location.map_url || "http://placehold.it/200x50"), :class => "picture", style: "width: 100%; max-width: 600px;" %>
-    <% end %>
-  </div>
-  <% end %>
+  <div class="span12 message">
+    <div class="span2">
+      <%= image_tag ("http://placehold.it/60/60"), class: "img-rounded pull-right" %>
+    </div>
+    <div class="single-message span10">
+      <span class="message_content">
+        <span class="pull-left"><b>username:</b></span>
+        <span class="pull-right message_created_at" data-date="<%= message.created_at.to_time.iso8601 %>">
+          <%= message.created_at.to_time.iso8601 %>
+        </span>
+        <span><br><%= message.content %></span>
+      </span>
+      <% if message.location %>
+      <div>
+        <%= link_to message.location.google_map_url, target: "blank" do %>
+        <%= image_tag (message.location.map_url || "http://placehold.it/200x50"), :class => "message-picture", style: "width: 100%; max-width: 600px;" %>
+        <% end %>
+      </div>
+      <% end %>
 
-  <% if message.photo %>
-  <div class="text-right">
-    <%= link_to message.photo.photo_url, id:message.id, target: "blank" do %>
-    <%= image_tag (message.photo.photo_url || "http://placehold.it/200x50"), id: message.photo.id ,:class => "picture", style: "width: 100%; max-width: 600px;" %>
-    <% end %>
+      
+      <% if message.photo %>
+        <div class="text-right">
+          <%= link_to message.photo.photo_url, id:message.id, target: "blank" do %>
+          <%= image_tag (message.photo.photo_url || "http://placehold.it/200x50"), id: message.photo.id ,:class => "message-picture", style: "width: 100%; max-width: 600px;" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
-  <% end %>
-
 </li>

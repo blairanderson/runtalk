@@ -100,6 +100,8 @@ GEM
     guard-rspec (3.0.1)
       guard (>= 1.8)
       rspec (~> 2.13)
+    haml (4.0.3)
+      tilt
     hike (1.2.3)
     http_parser.rb (0.5.3)
     httpauth (0.2.0)
@@ -254,6 +256,7 @@ DEPENDENCIES
   foreman
   geocoder
   guard-rspec
+  haml
   jbuilder (~> 1.0.1)
   jquery-rails
   private_pub

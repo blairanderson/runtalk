@@ -1,0 +1,49 @@
+<div id="chat-sidebar" style="display: none;">
+  <div id="chat-sidebar-contents">
+    <ul class="unstyled">
+      <li>
+         <%= link_to new_chat_invitations_path(@chat), class: "btn btn-info btn-block", id: "invite_user" do %>
+            <i class="icon-user icon-white"></i>
+            Invite a Friend
+          <% end %>
+      </li>
+      
+      <li>
+        <%= link_to '#', :class => "btn btn-success btn-block", :id => "submit_photo" do %>
+          <i class="icon-camera icon-white"></i>
+          Upload a Photo
+        <% end %>
+      </li>
+      
+      <li>
+        <%= link_to "#", :class => "btn btn-info btn-block", :id => "submit_location" do %>
+          <i class="icon-map-marker icon-white"></i>
+          Share your Location
+        <% end %>
+      </li>
+          
+    </ul>
+    <br>
+        <%= link_to "#", :class => "btn btn-large btn-inverse btn-block", id:  "close-sidebar" do %>
+          <i class="icon-trash icon-white"></i>
+          Close Sidebar
+        <% end %>
+  </div>
+</div>
+
+<script type="text/javascript">
+  var jPM = $.jPanelMenu({
+    menu: '#chat-sidebar',
+    direction: "right"
+  });
+  jPM.on();
+
+  $(document).on('click','#close-sidebar', function(e) {
+    e.preventDefault();
+    jPM.close();
+  });
+  $(document).on('click','#open-sidebar', function(e) {
+    e.preventDefault();
+    jPM.open();
+  });
+</script>
