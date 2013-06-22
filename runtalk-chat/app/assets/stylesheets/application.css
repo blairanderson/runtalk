@@ -12,8 +12,16 @@
  *= require_tree .
  */
 
+body {
+  padding-left: 0px;
+  padding-right: 0px;
+}
 form#new_message{
   margin: 5px -5px 5px;
+}
+
+#chat-sidebar-contents {
+  margin-top: 60px;
 }
 
 #dropdown-login {
