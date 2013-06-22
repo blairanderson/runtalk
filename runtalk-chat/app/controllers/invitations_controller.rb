@@ -8,7 +8,7 @@ class InvitationsController < ApplicationController
   def create 
     @chat = Chat.find_by_slug(params[:chat_id])
 
-    Invitation.create(params).send_email
+    Invitation.create(params).send_text
     
     redirect_to chat_path(@chat)
   end

@@ -1,16 +1,10 @@
 class Invitation < ActiveRecord::Base
-  attr_accessible :user_email, :chat_id, :user_id
+  attr_accessible :phone_number, :chat_id, :user_id
 
   after_create :generate_unique_url
 
-  def send_email
-    user = User.find_by_email(user_email)
-
-    if user 
-      UserMailer.send_registered_user_invitation(self)
-    else
-      UserMailer.unregistered_invitation(self)
-    end
+  def send_text
+    Text.new(phone_number).send_invitation(self)
   end
 
 private
@@ -19,5 +13,4 @@ private
     self.unique_url = SecureRandom.urlsafe_base64(16)
     self.save
   end
-
 end
