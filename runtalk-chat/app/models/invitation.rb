@@ -5,11 +5,12 @@ class Invitation < ActiveRecord::Base
 
   def send_email
     user = User.find_by_email(user_email)
+    text = Text.new
 
     if user 
-      UserMailer.send_registered_user_invitation(self)
+      text.send_registered_user_invitation(self)
     else
-      UserMailer.unregistered_invitation(self)
+      text.unregistered_invitation(self)
     end
   end
 
@@ -19,5 +20,4 @@ private
     self.unique_url = SecureRandom.urlsafe_base64(16)
     self.save
   end
-
 end

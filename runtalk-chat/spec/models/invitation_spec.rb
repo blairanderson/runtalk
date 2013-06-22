@@ -11,9 +11,9 @@ describe Invitation do
     context 'the invited individual is a registered user' do 
 
       it 'should send an email to the user' do
-        invitation = Invitation.create(user_email: user_2.email, chat_id: chat.id, user_id: user.id)
+        invitation = Invitation.create(phone_number: user_2.email, chat_id: chat.id, user_id: user.id)
 
-        UserMailer.should_receive(:send_registered_user_invitation).with(invitation)
+        Twilio.should_receive(:send_registered_user_invitation).with(invitation)
 
         invitation.send_email
       end
@@ -21,9 +21,9 @@ describe Invitation do
 
     context 'the invited individual is an unregistered user' do 
       it 'should send an email to the user' do 
-        invitation = Invitation.create(user_email: "new_user_email@example.com", chat_id: chat.id, user_id: user.id)
+        invitation = Invitation.create(phone_number: "new_user_email@example.com", chat_id: chat.id, user_id: user.id)
 
-        UserMailer.should_receive(:unregistered_invitation).with(invitation)
+        Twilio.should_receive(:unregistered_invitation).with(invitation)
 
         invitation.send_email
       end
