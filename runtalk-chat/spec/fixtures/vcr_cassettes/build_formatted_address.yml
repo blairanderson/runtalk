@@ -10,7 +10,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - ! '*/*'
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -21,13 +21,13 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Sat, 22 Jun 2013 19:37:03 GMT
+      - Sat, 22 Jun 2013 20:53:27 GMT
       Expires:
-      - Sun, 23 Jun 2013 19:37:03 GMT
+      - Sun, 23 Jun 2013 20:53:27 GMT
       Cache-Control:
       - public, max-age=86400
       Access-Control-Allow-Origin:
-      - ! '*'
+      - '*'
       Server:
       - mafe
       X-Xss-Protection:
@@ -318,5 +318,5 @@ http_interactions:
         eSIsICJwb2xpdGljYWwiIF0KICAgICAgfQogICBdLAogICAic3RhdHVzIiA6
         ICJPSyIKfQo=
     http_version: 
-  recorded_at: Sat, 22 Jun 2013 19:37:03 GMT
+  recorded_at: Sat, 22 Jun 2013 20:53:19 GMT
 recorded_with: VCR 2.5.0
