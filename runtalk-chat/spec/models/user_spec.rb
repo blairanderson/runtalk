@@ -4,23 +4,28 @@ describe User do
   
   describe ".username" do 
 
+    let!(:user) { User.create(username: "yo", email: "yolo@example.com", password: "a_password") }
+
     context "given a username exists" do 
 
-      it "does not create the user"
 
-      it "has an error on username"
+      it "does not create the user" do 
+        expect(User.create(username: "yo", email: "yolo@example.com", password: "a_password") ).to_not be_valid
+      end
     end
 
     context "a user does not give a username" do 
 
-      it "does not create the user"
-
-      it "has an error on username"
+      it "does not create the user" do 
+        expect(User.create(email: "yolo@example.com", password: "a_password") ).to_not be_valid
+      end
     end
 
-    context "a user does give a username" do 
+    context "a user does give a unique username" do 
 
-      it "creates the user"
+      it "creates the user" do 
+        expect(User.create(username: "unique_username", email: "yolo@example.com", password: "a_password") ).to be_valid
+      end
     end
   end
 
@@ -28,29 +33,16 @@ describe User do
 
     context "a user does not give a password" do 
 
-      it "does not create the user"
-
-      it "has an error on password"
+      it "does not create the user" do 
+        expect(User.create(username: "yo", email: "yolo@example.com") ).to_not be_valid
+      end
     end
 
     context "a user does give a password" do 
 
-      it "creates the user"
-    end
-  end
-
-  describe ".password_confirmation" do 
-
-    context "a user does not give a password confirmation" do 
-
-      it "does not create the user"
-
-      it "has an error on password confirmation"
-    end
-
-    context "a user does give a password confirmation" do 
-
-      it "creates the user"
+      it "creates the user" do 
+        expect(User.create(username: "yo", email: "yolo@example.com", password: "a_password") ).to be_valid
+      end
     end
   end
 
@@ -58,21 +50,23 @@ describe User do
 
     context "given an email exists" do 
 
-      it "does not create the user"
-
-      it "has an error on email"
+      it "does not create the user" do 
+        expect(User.create(username: "yo", email: "yolo@example.com", password: "a_password") ).to_not be_valid
+      end
     end
 
     context "a user does not give an email" do 
 
-      it "does not create the user"
-
-      it "has an error on email"
+      it "does not create the user" do 
+        expect(User.create(username: "yo", password: "a_password") ).to_not be_valid
+      end
     end
 
     context "a user does give an email" do 
 
-      it "creates the user"
+      it "creates the user" do 
+        expect(User.create(username: "yo", email: "yolo@example.com", password: "a_password") ).to be_valid
+      end
     end
   end
 end
