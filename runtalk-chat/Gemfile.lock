@@ -136,6 +136,7 @@ GEM
       jwt (~> 0.1.4)
       multi_json (~> 1.0)
       rack (~> 1.2)
+    pg (0.15.1)
     polyglot (0.3.3)
     private_pub (1.0.3)
       faye
@@ -259,6 +260,7 @@ DEPENDENCIES
   haml
   jbuilder (~> 1.0.1)
   jquery-rails
+  pg
   private_pub
   protected_attributes
   rails (= 4.0.0.rc1)

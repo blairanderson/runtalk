@@ -20,9 +20,12 @@ gem 'haml'
 # gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+group :production do 
+  gem 'pg'
+end
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'rspec-rails', '~> 2.0'
   gem 'capybara'
   gem 'guard-rspec'
