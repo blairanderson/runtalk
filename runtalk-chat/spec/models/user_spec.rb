@@ -4,10 +4,10 @@ describe User do
   
   describe ".username" do 
 
-    let!(:user) { User.create(username: "yo", email: "yolo@example.com", password: "a_password") }
 
     context "given a username exists" do 
-
+    
+    let!(:user) { User.create(username: "yo", email: "yolo@example.com", password: "a_password") }
 
       it "does not create the user" do 
         expect(User.create(username: "yo", email: "yolo@example.com", password: "a_password") ).to_not be_valid
@@ -49,6 +49,8 @@ describe User do
   describe ".email" do 
 
     context "given an email exists" do 
+
+      let!(:user) { User.create(username: "yo", email: "yolo@example.com", password: "a_password") }
 
       it "does not create the user" do 
         expect(User.create(username: "yo", email: "yolo@example.com", password: "a_password") ).to_not be_valid
