@@ -1,0 +1,138 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://localhost:3001/messages?chat_id=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"d751713988987e9331980363e24189ce"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 7949a6cd-e786-4058-b35a-dd5edc8894c1
+      X-Runtime:
+      - '0.075518'
+      Server:
+      - WEBrick/1.3.1 (Ruby/1.9.3/2013-02-22)
+      Date:
+      - Wed, 26 Jun 2013 23:01:55 GMT
+      Content-Length:
+      - '2'
+      Connection:
+      - Keep-Alive
+      Set-Cookie:
+      - request_method=GET; path=/
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Wed, 26 Jun 2013 23:01:55 GMT
+- request:
+    method: get
+    uri: http://localhost:3001/messages?chat_id=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"d751713988987e9331980363e24189ce"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - d9488291-2f1a-41d6-9081-2aeabf0ec7ec
+      X-Runtime:
+      - '0.005175'
+      Server:
+      - WEBrick/1.3.1 (Ruby/1.9.3/2013-02-22)
+      Date:
+      - Wed, 26 Jun 2013 23:01:55 GMT
+      Content-Length:
+      - '2'
+      Connection:
+      - Keep-Alive
+      Set-Cookie:
+      - request_method=GET; path=/
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Wed, 26 Jun 2013 23:01:55 GMT
+- request:
+    method: get
+    uri: http://localhost:3001/messages?chat_id=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers: {}
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      Etag:
+      - '"d751713988987e9331980363e24189ce"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - bb08fd6c-482d-4171-9c12-79099369ccce
+      X-Runtime:
+      - '0.003849'
+      Server:
+      - WEBrick/1.3.1 (Ruby/1.9.3/2013-02-22)
+      Date:
+      - Wed, 26 Jun 2013 23:01:55 GMT
+      Content-Length:
+      - '2'
+      Connection:
+      - Keep-Alive
+      Set-Cookie:
+      - request_method=GET; path=/
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Wed, 26 Jun 2013 23:01:55 GMT
+recorded_with: VCR 2.5.0

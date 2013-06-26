@@ -6,12 +6,9 @@ describe Chat do
   let(:chat){Chat.create!(name: valid_name, slug: valid_slug)}
 
   describe 'creating a new chatroom' do 
-
     context 'given the chatroom does not exist' do 
-
       it 'creates a new chatroom' do 
-
-        visit '/'
+        visit root_path
 
         fill_in 'name', :with => "Example123"
         click_button 'Create'
@@ -20,20 +17,14 @@ describe Chat do
         expect(current_path).to eq "/chats/example123"
         expect(page).to have_content("Example123")
       end
-
-      it 'lists the chatroom as an available room'
     end
 
     context 'given the chatroom does exist' do 
-
       before do 
         Chat.create(name: "Example123", slug: "example123")
       end
-    
       it 'informs the user that the chatroom already exists' do 
-        
-        visit '/'
-
+        visit root_path
         fill_in 'name', :with => "Example123"
         click_button 'Create'
         click_button 'Create Chatroom'

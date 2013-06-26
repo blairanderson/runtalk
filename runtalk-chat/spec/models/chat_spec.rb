@@ -2,6 +2,23 @@
 
 describe Chat do
 
+  describe '#messages' do 
+    
+    let(:sample_messages) do 
+      [{"id"=>1, "content"=>"funny message", "user_id"=>nil, "chat_id"=>1, "created_at"=>"2013-06-26T23:16:43.977Z", "updated_at"=>"2013-06-26T23:16:43.977Z"}]
+    end
+
+    before do 
+      Chat.any_instance.stub(:message_request).and_return(sample_messages)
+    end
+
+    it 'should convert these messages to MessageProxy objects' do 
+      chat = create_chat
+      messages = chat.messages
+      expect(messages.first).to be_kind_of MessageProxy
+    end
+  end
+
   describe '#create' do 
 
     context 'a chatroom name is unique' do 

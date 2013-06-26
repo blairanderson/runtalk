@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row-fluid">
       <ul class="nav nav-list" id="messages">
-        <%= render partial: "messages/message", collection: @chat.messages.last(20) %>
+        <%= render partial: "messages/message", collection: @chat.messages %>
       </ul>
     </div>
   </div>

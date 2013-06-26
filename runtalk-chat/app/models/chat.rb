@@ -3,9 +3,19 @@ class Chat < ActiveRecord::Base
 
   validates_uniqueness_of :name, :slug
   
-  has_many :messages
-  
   def to_param
     slug
+  end
+
+  def message_request
+    response = HTTParty.get("http://localhost:3001/messages?chat_id=#{self.id}")
+    JSON.parse(response.body)
+  end
+
+  def messages
+    messages = message_request
+    messages.map do |message|
+      MessageProxy.new(message)
+    end
   end
 end
