@@ -203,6 +203,7 @@ DEPENDENCIES
   rails (= 4.0.0.rc1)
   rails_12factor
   redis
+  rspec
   rspec-rails (~> 2.0)
   sass-rails (~> 4.0.0.rc1)
   sdoc

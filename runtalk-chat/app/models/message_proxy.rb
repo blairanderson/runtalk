@@ -7,10 +7,10 @@ class MessageProxy
     @created_at = message['created_at']
   end
 
-  def self.create(message_params)
+  def self.create(message_params, chat_id)
     valid_message = { 
       content: message_params[:message][:content], 
-      chat_id: message_params[:chat_id], 
+      chat_id: chat_id, 
       created_at: Time.now}.with_indifferent_access
     new(valid_message)
   end

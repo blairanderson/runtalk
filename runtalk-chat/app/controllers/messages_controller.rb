@@ -1,10 +1,8 @@
 class MessagesController < ApplicationController
 
   def create
-    @message = MessageProxy.create(params)
-    #saves a message for a given chatroom.
     @chat = Chat.find_by_slug(params[:chat_id])
-    # @message = @chat.messages.build(params[:message])
+    @message = MessageProxy.create(params, @chat.id)
 
     #renders the create.js page
     respond_to do |format|
