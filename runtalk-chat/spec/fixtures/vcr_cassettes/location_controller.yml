@@ -21,9 +21,9 @@ http_interactions:
       Content-Type:
       - application/json; charset=UTF-8
       Date:
-      - Thu, 27 Jun 2013 16:31:17 GMT
+      - Thu, 27 Jun 2013 20:00:18 GMT
       Expires:
-      - Fri, 28 Jun 2013 16:31:17 GMT
+      - Fri, 28 Jun 2013 20:00:18 GMT
       Cache-Control:
       - public, max-age=86400
       Access-Control-Allow-Origin:
@@ -317,5 +317,5 @@ http_interactions:
         ICAgICAgICAgInR5cGVzIiA6IFsgImNvdW50cnkiLCAicG9saXRpY2FsIiBd
         CiAgICAgIH0KICAgXSwKICAgInN0YXR1cyIgOiAiT0siCn0K
     http_version: 
-  recorded_at: Thu, 27 Jun 2013 16:31:17 GMT
+  recorded_at: Thu, 27 Jun 2013 20:00:18 GMT
 recorded_with: VCR 2.5.0

@@ -2,14 +2,15 @@ class MessagesController < ApplicationController
 
   def create
     @chat = Chat.find_by_slug(params[:chat_id])
-    @message = MessageProxy.create(params, @chat.id)
+    @message = MessageProxy.build_proxy_message(
+      params[:message][:content], 
+      @chat.id)
+    
+    Channel.publish(:chat_message, @message)
 
-    #renders the create.js page
     respond_to do |format|
-      if @message.save
-        format.html { redirect_to chat_path(@chat) }
-        format.js {@message}
-      end
+      format.html { redirect_to chat_path(@chat) }
+      format.js {@message}
     end
   end
 

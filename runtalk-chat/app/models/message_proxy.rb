@@ -1,35 +1,35 @@
-class MessageProxy
-  attr_reader :content, :chat_id, :created_at
+require 'ostruct'
 
-  def initialize(message)
-    @content = message['content']  
-    @chat_id = message['chat_id']
-    @created_at = message['created_at']
-  end
+class MessageProxy < OpenStruct
 
-  def self.create(message_params, chat_id)
+  def self.build_proxy_message(message_content, chat_id)
     valid_message = { 
-      content: message_params[:message][:content], 
-      chat_id: chat_id, 
-      created_at: Time.now}.with_indifferent_access
+      content: message_content, 
+      chat_id: chat_id,
+      created_at: Time.now}
     new(valid_message)
   end
 
-  def location
-    false
+  def self.build_location_for_chat(lat_long, chat_id)
+    location = LocationProxy.new(lat_long)
+    message = {
+      chat_id: chat_id, 
+      location: location,
+      content: "mapping... #{location.address}",
+      created_at: Time.now
+      }
+    MessageProxy.new(message)
   end
 
   def photo
     false
   end
 
-  def save
-    puts self.inspect
-    Channel.publish(:chat_message, self)
-    true
-  end
-
   def to_partial_path
     "messages/message"
+  end
+
+  def to_json
+    marshal_dump.to_json
   end
 end
