@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130626220233) do
+ActiveRecord::Schema.define(version: 20130627221601) do
+
+  create_table "locations", force: true do |t|
+    t.integer  "message_id"
+    t.string   "latitude"
+    t.string   "longitude"
+    t.string   "accuracy"
+    t.string   "address"
+    t.string   "map_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "locations", ["message_id"], name: "index_locations_on_message_id"
 
   create_table "messages", force: true do |t|
     t.string   "content"

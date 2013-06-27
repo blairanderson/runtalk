@@ -2,14 +2,12 @@ class MessageRecorder
 
   def self.record(message)
     data = JSON.parse(message)
-    puts message.inspect
-    Message.create!(data)
+    Message.store_message(data)
   end
 
   def self.listen
     host.subscribe(:chat_message) do |subscription|
       subscription.message do |channel, item|
-        puts "recording: #{item.inspect}"
         record(item)
       end
     end
