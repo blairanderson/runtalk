@@ -31,4 +31,23 @@ describe MessageProxy do
     end    
   end
 
+  context "building retrieved messages with locations" do 
+    let(:message_with_location) do 
+      {"chat_id"=>1,
+      "content"=>"mapping... 1062 Delaware Street, Denver, CO 80204, USA",
+      "created_at"=>"2013-06-27T16:51:48-06:00",
+      "location"=> {
+        "latitude"=>"39.7335536",
+        "longitude"=>"-104.99257779999999",
+        "accuracy"=>"20",
+        "address"=>"1062 Delaware Street, Denver, CO 80204, USA"
+        }
+      }
+    end
+
+    it 'should build a MessageProxy with associated LocationProxy' do 
+      message = MessageProxy.new(message_with_location)
+      expect(message.location).to be_kind_of LocationProxy
+    end
+  end
 end

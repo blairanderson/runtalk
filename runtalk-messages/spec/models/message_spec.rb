@@ -45,6 +45,4 @@ describe Message do
 
   context 'given a message with a photo' do 
   end
-  
-
 end
