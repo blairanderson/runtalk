@@ -15,7 +15,7 @@ class Chat < ActiveRecord::Base
   def messages
     messages = message_request
     messages.map do |message|
-      MessageProxy.new(message)
+      MessageProxy.new(message.with_indifferent_access)
     end
   end
 end

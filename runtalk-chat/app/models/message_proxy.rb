@@ -11,7 +11,7 @@ class MessageProxy
     valid_message = { 
       content: message_params[:message][:content], 
       chat_id: message_params[:chat_id], 
-      created_at: Time.now}
+      created_at: Time.now}.with_indifferent_access
     new(valid_message)
   end
 
@@ -24,7 +24,9 @@ class MessageProxy
   end
 
   def save
+    puts self.inspect
     Channel.publish(:chat_message, self)
+    true
   end
 
   def to_partial_path
