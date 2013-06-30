@@ -1,8 +1,9 @@
 class Chat < ActiveRecord::Base
   attr_accessible :name, :slug
 
-  validates_uniqueness_of :name, :slug
-  
+  validates_uniqueness_of :slug, :case_sensitive => false
+  validates :slug, format: { with: /\A[a-z0-9]+\z/ }
+
   def to_param
     slug
   end

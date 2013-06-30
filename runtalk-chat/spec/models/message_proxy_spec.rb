@@ -92,8 +92,17 @@ describe MessageProxy do
       expect(message.location.class).to eq LocationProxy
     end
 
-    xit 'should build message with photo' do 
-      # message
+    let(:message_with_photo) do 
+      {"chat_id"=>1,
+      "content"=>"photo... ",
+      "created_at"=>"2013-06-27T16:51:48-06:00",
+      photo: {photo_url: "http://www.example.com/photo.png"}
+      }.with_indifferent_access
+    end
+
+    it 'should build message with photo' do 
+      message = MessageProxy.build_message_with_location_or_photo(message_with_photo)
+      expect(message.photo).to be_kind_of PhotoProxy
     end
   end
 end
