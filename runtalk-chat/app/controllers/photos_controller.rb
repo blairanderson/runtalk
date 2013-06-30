@@ -4,8 +4,13 @@ class PhotosController < ApplicationController
     
     respond_to do |format|
       if @message =  Message.build_photo_for_chat(photo_params, @chat)
-        format.html { redirect_to chat_path(@chat) }
-        format.js {@message}
+        format.html do
+          redirect_to chat_path(@chat) 
+        end
+        format.js do
+          @message
+          render "messages/create"
+        end
       end
     end
 

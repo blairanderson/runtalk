@@ -1,0 +1,9 @@
+<div class="row-fluid well" id="message-window">
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <ul class="nav nav-list" id="messages">
+        <%= render partial: "messages/message", collection: @chat.messages.last(20) %>
+      </ul>
+    </div>
+  </div>
+</div>

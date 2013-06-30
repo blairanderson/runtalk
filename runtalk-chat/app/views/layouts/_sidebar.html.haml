@@ -1,0 +1,9 @@
+#left-panel{"data-role" => "panel"}
+  %p Left reveal panel.
+  %p
+  - if @search_data
+    %ul{'data-role' => 'listview', 'data-inset' => 'true', 'data-theme' => 'a', 'data-filter' => "true", 'data-icon' => 'arrow-r'}
+      - @search_data.each do |room|
+        %li
+          =link_to room, "/chats/#{room}"
+  %a{"data-icon" => "delete", "data-iconpos" => "right", "data-rel" => "close", "data-role" => "button", :href => "#"} Close

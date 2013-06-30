@@ -11,4 +11,9 @@ class MessagesController < ApplicationController
       end
     end
   end
+
+  def index
+    @chat = Chat.find_by_slug(params[:chat_id])
+    redirect_to @chat
+  end
 end
