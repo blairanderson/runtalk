@@ -10,19 +10,33 @@ class MessageProxy < OpenStruct
     new(valid_message)
   end
 
+  def self.build_message_with_location_or_photo(message)
+    result = new(message)
+    result = build_location_for_chat(message[:location], message[:chat_id]) if message[:location]
+    result = build_photo_for_chat(message[:photo], message[:chat_id]) if message[:photo]
+    result      
+  end
+
   def self.build_location_for_chat(lat_long, chat_id)
     location = LocationProxy.new(lat_long)
     message = {
       chat_id: chat_id, 
       location: location,
       content: "mapping... #{location.address}",
-      created_at: Time.now
+      created_at: lat_long[:created_at] || Time.now
       }
-    MessageProxy.new(message)
+    new(message)
   end
 
-  def photo
-    false
+  def self.build_photo_for_chat(photo, chat_id)
+    photo = PhotoProxy.new(photo)
+    message = {
+      chat_id: chat_id, 
+      photo: photo,
+      content: "photo...",
+      created_at: photo[:created_at] || Time.now
+      }
+    new(message)
   end
 
   def to_partial_path
@@ -30,6 +44,13 @@ class MessageProxy < OpenStruct
   end
 
   def to_json
-    marshal_dump.to_json
+    result = {}
+    to_h.map do |key, value|
+      thing = value
+      thing = value.to_h if key == :location
+      thing = value.to_h if key == :photo
+      result[key] = thing
+    end
+    result.to_json
   end
 end

@@ -277,6 +277,7 @@ DEPENDENCIES
   pg
   private_pub
   protected_attributes
+  pry
   rails (= 4.0.0.rc1)
   rails_12factor
   redis

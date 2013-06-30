@@ -29,6 +29,7 @@ group :development, :test do
   gem 'capybara'
   gem 'guard-rspec'
   gem 'launchy'
+  gem 'pry'
 end
 
 group :test do 

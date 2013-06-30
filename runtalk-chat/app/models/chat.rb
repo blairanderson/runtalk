@@ -15,7 +15,8 @@ class Chat < ActiveRecord::Base
   def messages
     messages = message_request
     messages.map do |message|
-      MessageProxy.new(message.with_indifferent_access)
+      MessageProxy.build_message_with_location_or_photo(message.with_indifferent_access)
     end
   end
+
 end

@@ -1,7 +1,7 @@
 class MessageRecorder
 
   def self.record(message)
-    data = JSON.parse(message)
+    data = JSON.parse(message).with_indifferent_access
     Message.store_message(data)
   end
 

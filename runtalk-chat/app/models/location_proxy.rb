@@ -1,6 +1,7 @@
 require 'ostruct'
 
 class LocationProxy < OpenStruct
+
   def address
     @address ||= build_address
   end
@@ -29,7 +30,10 @@ class LocationProxy < OpenStruct
     }).url
   end
 
-  def to_json
-    marshal_dump.to_json
+  def to_h
+    result = @table.dup
+    result[:address] = address
+    result[:map_url] = map_url
+    result
   end
 end
