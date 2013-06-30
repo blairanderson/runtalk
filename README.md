@@ -11,14 +11,30 @@ SSH into the VM:
 
     $ vagrant ssh
 
-Start the rails server of the main chat application:
 
-    $ cd /vagrant/runtalk-chat
-    $ rails s
+Start the redis-server
 
-To start the faye server, open a new tab in the same folder, SSH in and start the faye server:
+    $ redis-server
 
-    $ vagrant ssh
+
+To help debug, start the redis-cli and run monitor
+
+    $ redis-cli
+    $ monitor
+
+
+Start the faye server:
+
     $ rackup private_pub.ru -s thin -E production
 
 
+Start the rails server of the chat application:
+
+    $ cd /vagrant/runtalk-chat
+    $ rails s -p 3000
+
+
+Start the rails server of the messages application:
+
+    $ cd /vagrant/runtalk-messages
+    $ rails s -p 3001
