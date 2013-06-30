@@ -57,8 +57,4 @@ describe Location do
     location.message_id = nil
     expect(location).to be_invalid
   end
-
-  it 'should be destroyed if the message is deleted'
-
-  it 'is invalid without latitude and longitude'
 end

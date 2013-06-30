@@ -37,21 +37,6 @@ describe Message do
         expect( location.accuracy).to eq "71"
       end
     end
-
-    xit 'does not build a location with bad params' do 
-      expect(chat).to be_valid
-      invalid_params = {:latitude=>"taco", :longitude=>"taco", :accuracy=>"taco"}
-      VCR.use_cassette("invalidate_build_with_bad_location_params") do 
-        message = Message.build_location_for_chat(invalid_params, chat)
-        expect(message).to be_invalid
-
-        location = message.location
-        expect( location ).to be_invalid
-        expect(Location.count).to eq 0
-
-        expect(Message.count).to eq 1
-      end
-    end
   end
 
 

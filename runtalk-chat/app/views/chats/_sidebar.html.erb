@@ -2,21 +2,21 @@
   <div id="chat-sidebar-contents">
     <ul class="unstyled">
       <li>
-         <%= link_to new_chat_invitations_path(@chat), class: "btn btn-info btn-block", id: "invite_user" do %>
+         <%= link_to new_chat_invitations_path(@chat), class: "btn btn-success btn-block", id: "invite_user" do %>
             <i class="icon-user icon-white"></i>
             Invite a Friend
           <% end %>
       </li>
       
       <li>
-        <%= link_to '#', :class => "btn btn-success btn-block", :id => "submit_photo" do %>
+        <%= link_to '#', :class => "btn btn-info btn-block", :id => "submit_photo" do %>
           <i class="icon-camera icon-white"></i>
           Upload a Photo
         <% end %>
       </li>
       
       <li>
-        <%= link_to "#", :class => "btn btn-info btn-block", :id => "submit_location" do %>
+        <%= link_to "#", :class => "btn btn-primary btn-block", :id => "submit_location" do %>
           <i class="icon-map-marker icon-white"></i>
           Share your Location
         <% end %>
