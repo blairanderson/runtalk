@@ -4,22 +4,8 @@ describe 'a user joins a chatroom' do
 
   context 'a guest user joins a chatroom' do 
 
-    it 'brings a guest to a page, asking them to create a guest username' do 
-      pending
+    it 'brings a guest to a page, asking them to create a guest username' 
 
-      Chat.any_instance.stub(:message_request).and_return([])
-
-      visit root_path
-
-      fill_in 'name', :with => "Example123"
-      click_button 'Create'
-      click_button 'Create Chatroom'
-
-
-      expect(current_path).to eq "/chats/example123"
-      expect(page).to have_content("Example123")
-  
-    end
   end
 
   context 'a user that is logged in joins a chatroom' do 
@@ -41,7 +27,7 @@ describe 'a user joins a chatroom' do
     
     it 'brings the user directly to the chatroom' do 
 
-      pending "new feature"
+      pending "new feature, not yet implemented"
     
       Chat.any_instance.stub(:message_request).and_return([])
 
@@ -54,8 +40,6 @@ describe 'a user joins a chatroom' do
       fill_in "message_content", :with => "content"
       click_on "Send"
       visit(current_path)
-
-      save_and_open_page
 
       expect(page).to have_content(user.username)
 
