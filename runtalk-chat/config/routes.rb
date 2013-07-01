@@ -11,7 +11,7 @@ RuntalkChat::Application.routes.draw do
   resource :users
 
 
-  resource :sessions, only: [:new, :create]
+  resource :sessions
   get '/search' => 'chats#search', as: 'search'
 
 end

@@ -4,8 +4,14 @@
     <ul class="nav">
       <li>
         <div class="btn-group pull-right">
+
+          <% if current_user %>
+            <%= link_to "Sign Out", edit_sessions_path, class: "btn", :method => :delete %>
+          <% else %>
+            <%= link_to "Log In", new_sessions_path, class: "btn btn-info" %>
+          <% end %>
+
           <%= link_to "Sign Up", new_users_path, class: "btn" %>
-          <%= link_to "Log In", new_sessions_path, class: "btn btn-info" %>
         </div>
       </li>
     </ul>

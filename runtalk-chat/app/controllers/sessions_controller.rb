@@ -13,4 +13,9 @@ class SessionsController < ApplicationController
       redirect_to new_sessions_path, :notice => "Invalid credentials"
     end  
   end
+
+  def delete
+    logout
+    redirect_to root_url, :notice => "Logged out!"
+  end
 end

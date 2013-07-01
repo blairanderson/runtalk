@@ -17,6 +17,8 @@ describe User do
         click_on "Log in"
 
         expect(current_path).to eq "/"
+        expect(page).to have_content "Sign Out"
+        expect(page).to_not have_content "Log In"
       end
     end
 
