@@ -17,7 +17,7 @@ body {
   padding-right: 0px;
 }
 form#new_message{
-  margin: 5px -5px 5px;
+  margin: 5px 15px 5px 10px;
 }
 
 #chat-sidebar-contents {
@@ -38,7 +38,6 @@ form#new_message{
   word-wrap: break-word;
   margin-left: 1px;
 }
-
 
 #messages > li{
   word-wrap: break-word;
@@ -86,7 +85,13 @@ form#new_message{
   margin-top: 10px;
 }
 
+.message_created_at {
+  padding-right: 10px
+}
+
 .message-picture {
+  width: 100%;
+  max-width: 600px;
   min-width: 200px;
   -webkit-border-radius: 40px;
   -webkit-border-top-left-radius: 0;
