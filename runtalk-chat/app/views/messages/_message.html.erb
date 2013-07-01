@@ -13,15 +13,15 @@
         </span>
         <span><br><%= message.content %></span>
       </span>
+
       <% if message.location %>
       <div>
         <%= link_to message.location.google_map_url, target: "blank" do %>
-        <%= image_tag (message.location.map_url || "http://placehold.it/200x50"), :class => "message-picture", style: "width: 100%; max-width: 600px;" %>
+          <%= image_tag (message.location.map_url || "http://placehold.it/200x50"), :class => "message-picture" %>
         <% end %>
       </div>
       <% end %>
 
-      
       <% if message.photo %>
         <div class="text-right">
           <%= link_to message.photo.photo_url, id:message.id, target: "blank" do %>
