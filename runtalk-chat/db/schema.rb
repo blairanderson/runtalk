@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20130701204202) do
     t.string   "chat_id"
   end
 
-  add_index "invitations", ["user_id"], name: "index_invitations_on_user_id", using: :btree
+  add_index "invitations", ["user_id"], name: "index_invitations_on_user_id"
 
   create_table "locations", force: true do |t|
     t.integer  "message_id"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20130701204202) do
     t.string   "map_url"
   end
 
-  add_index "locations", ["message_id"], name: "index_locations_on_message_id", using: :btree
+  add_index "locations", ["message_id"], name: "index_locations_on_message_id"
 
   create_table "messages", force: true do |t|
     t.string   "content"
@@ -52,8 +52,8 @@ ActiveRecord::Schema.define(version: 20130701204202) do
     t.datetime "updated_at"
   end
 
-  add_index "messages", ["chat_id"], name: "index_messages_on_chat_id", using: :btree
-  add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
+  add_index "messages", ["chat_id"], name: "index_messages_on_chat_id"
+  add_index "messages", ["user_id"], name: "index_messages_on_user_id"
 
   create_table "photos", force: true do |t|
     t.string   "photo_url"
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 20130701204202) do
     t.datetime "updated_at"
   end
 
-  add_index "photos", ["message_id"], name: "index_photos_on_message_id", using: :btree
+  add_index "photos", ["message_id"], name: "index_photos_on_message_id"
 
   create_table "users", force: true do |t|
     t.string   "username",         null: false
