@@ -17,9 +17,6 @@ describe User do
         click_on "Log in"
 
         expect(current_path).to eq "/"
-        within("#flash") do 
-          expect(page).to have_content("Signed In")
-        end
       end
     end
 

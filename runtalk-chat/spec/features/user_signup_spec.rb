@@ -20,9 +20,6 @@ describe User do
         click_on "Create Account"
 
         expect(current_path).to eq "/"
-        within("#flash") do
-            expect(page).to have_content("Account created")
-        end
       end
     end
 
