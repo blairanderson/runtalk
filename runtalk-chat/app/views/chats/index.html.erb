@@ -1,32 +1,30 @@
-<% if flash[:notice] %>
-  <div id='flash'>
-    <p><%= flash[:notice] %></p>
-  </div>
-<% end %>
-
-
 <div class="navbar-fixed-top">
   <div class="navbar-inner">
     <a class="chat-name text-center">RunTalk</a>
+    <ul class="nav">
+      <li>
+        <div class="btn-group pull-right">
+          <%= link_to "Sign Up", new_users_path, class: "btn" %>
+          <%= link_to "Log In", new_sessions_path, class: "btn btn-info" %>
+        </div>
+      </li>
+    </ul>
   </div>
 </div>
-
-
-<!--  center-fields is solely for the purpose of centering the home
-      search/create fields vertically
-
-      center-button are for sizing the actual input fields so they
-         fit in the mobile window -->
-
 
   <div class="text-center well" id="headline">
     <h3>Welcome to RunTalk.</h3>
     <h4>Mobile Chatrooms. Your Location, Your Images.</h4>
   </div>
 <div>
+<% if flash[:notice] %>
+  <div class='alert'>
+    <h3 class="text-center"><%= flash[:notice] %></h3>
+  </div>
+<% end %>
   <h1 class="text-center">Find Room</h1>
-  <%= form_tag("/chats", :method => "get", :class => "form-search text-center") do %>
-    <%= text_field_tag :id, nil, id: "search-box", data: {provide: "typeahead", items: 10, source: @search_data.to_json} %>
+  <%= form_tag("/search", :method => "get", :class => "form-search text-center") do %>
+    <%= text_field_tag :id, nil, id: "search-box", autocomplete: "off",  data: {provide: "typeahead", items: 10, source: @search_data.to_json} %>
     <%= submit_tag "Search", :class =>"btn btn-info center-button", :action => "show" %>
   <% end %>
 
@@ -37,11 +35,3 @@
     <%= submit_tag "Create", :class =>"btn btn-info center-button", :action => 'new' %>
   <% end %>
 </div>
-
-</br>
-
-<%= link_to "Sign Up", new_users_path %>
-
-</br>
-
-<%= link_to "Log In", new_sessions_path %>
