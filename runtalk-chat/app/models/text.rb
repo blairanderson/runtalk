@@ -6,8 +6,8 @@ class Text
     @phone_number = phone_number
   end
 
-  def send_invitation(invitation)
-    message_body = "You have been invited to RunTalk. Visit localhost:3000/#{invitation.chat_id} to join."
+  def send_invitation(chatroom)
+    message_body = "You have been invited to RunTalk. Visit www.runtalk.us/chats/#{chatroom.chat_id} to join."
     send_message(phone_number, message_body)
   end
 
