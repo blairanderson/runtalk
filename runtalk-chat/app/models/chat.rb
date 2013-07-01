@@ -8,9 +8,17 @@ class Chat < ActiveRecord::Base
     slug
   end
 
+  def request_url(path)
+    "http://localhost:3001/#{path}"
+  end
+
   def message_request
-    response = HTTParty.get("http://localhost:3001/messages?chat_id=#{self.id}")
-    JSON.parse(response.body)
+    begin
+      response = HTTParty.get request_url("messages?chat_id=#{self.id}")
+      JSON.parse(response.body)
+    rescue
+      []
+    end
   end
 
   def messages
