@@ -23,4 +23,13 @@ class ChatsController < ApplicationController
       redirect_to chat_path(chat)
     end
   end
+
+  def search
+    @chat = Chat.find_by_slug(params[:id])
+    if @chat
+      redirect_to @chat
+    else
+      redirect_to root_path, notice: "that room does not exist"
+    end
+  end
 end
