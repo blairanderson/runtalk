@@ -19,7 +19,7 @@ describe InvitationsController do
 
   describe "GET #new" do 
 
-    let(:invitation) { Invitation.new}
+    let(:invitation) { InvitationProxy.new}
 
     it "renders a new invitation" do 
       pending "it says no route is available but the route is there"

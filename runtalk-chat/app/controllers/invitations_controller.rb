@@ -9,7 +9,9 @@ class InvitationsController < ApplicationController
 
     @chat = Chat.find_by_slug(params[:chat_id])
 
-    Invitation.create(params).send_text
+    invitation = InvitationProxy.new(params)
+
+    Channel.publish(:send_invitation, invitation)
     
     redirect_to chat_path(@chat)
   end
