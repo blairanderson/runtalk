@@ -14,7 +14,6 @@ describe User do
         fill_in "phone_number", :with => "15005550000"
         click_on "Send Invitation"
   
-        expect(Invitation.count).to eq 1
         expect(current_path).to eq '/chats/whatever'
       end
 
