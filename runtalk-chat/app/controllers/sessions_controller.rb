@@ -1,15 +1,19 @@
 class SessionsController < ApplicationController
   def new
-    @user = OpenStruct.new(username: "", password: "")
   end
 
   def create
     user = login(params[:username], 
                  params[:password],
                  remember_me = false)
-
+    @chat = Chat.find_by_slug(params[:chat_id])
     if user
-      redirect_to root_path, :notice => "Signed In"
+      session[:profile_id] = user.profile.id
+      if @chat
+        redirect_to @chat
+      else
+        redirect_to root_path, :notice => "Signed In"
+      end
     else
       redirect_to new_sessions_path, :notice => "Invalid credentials"
     end  

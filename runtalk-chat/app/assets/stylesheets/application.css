@@ -12,6 +12,16 @@
  *= require_tree .
  */
 
+.btn-login {
+padding: 19px 36px;
+display: block;
+width: 100%;
+padding-right: 0;
+padding-left: 0;
+margin: 3px;
+font-size: 24px;
+} 
+
 body {
   padding-left: 0px;
   padding-right: 0px;

@@ -1,0 +1,8 @@
+<div class="text-center">
+<h2>Pick your display name</h2>
+<%= simple_form_for @profile do |f| %>
+  <%= f.input :name, placeholer: "name" %>
+  <%= hidden_field_tag :chat_id, params[:chat_id] %>
+  <%= f.submit :create, class: "btn btn-success" %>
+<% end %>
+</div>

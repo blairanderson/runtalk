@@ -5,7 +5,7 @@
       <h3 class="text-center"><%= flash[:notice] %></h3>
     </div>
   <% end %>
-  <%= form_tag sessions_path do %>
+  <%= form_tag sessions_path(chat_id: params[:chat_id]) do %>
     <div class="field">
       <%= label_tag :username %>
       <%= text_field_tag :username, nil, required: true %>

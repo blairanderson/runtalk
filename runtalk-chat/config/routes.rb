@@ -6,10 +6,11 @@ RuntalkChat::Application.routes.draw do
     resources :locations, only: [:new, :create]
     resource :invitations, only: [:new, :create ]
     resources :photos, only: [:create]
+    get '/name' => 'users#name', as: 'name'
   end
 
   resource :users
-
+  resources :profiles, only: [:new, :create]
 
   resource :sessions, only: [:new, :create]
   get '/logout' => 'sessions#destroy', as: 'logout'
