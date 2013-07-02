@@ -37,6 +37,7 @@ describe User do
         within("#flash") do 
           expect(page).to have_content("Invalid credentials")
         end
+        expect(page).to have_content("Log In")
       end 
     end
   end
