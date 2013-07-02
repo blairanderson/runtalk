@@ -6,9 +6,9 @@ describe MessagesController do
     it 'creates a new message' do 
       Channel.stub(:publish).and_return(true)
       chat = create_chat
-      valid_message = {content: "Message Content"}
-      post :create, chat_id: chat.slug, message: valid_message
-      expect(assigns(:message).content).to eq valid_message[:content]
+
+      post :create, chat_id: chat.slug, content: "Message Content"
+      expect(assigns(:message).content).to eq "Message Content"
     end
   end
 end
