@@ -1,9 +1,10 @@
 class MessagesController < ApplicationController
 
   def create
+
     @chat = Chat.find_by_slug(params[:chat_id])
     @message = MessageProxy.build_proxy_message(
-      params[:message][:content], 
+      params[:content], 
       @chat.id)
     
     Channel.publish(:chat_message, @message)
