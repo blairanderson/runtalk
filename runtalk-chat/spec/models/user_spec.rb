@@ -3,8 +3,7 @@ require 'spec_helper'
 describe User do
   
   describe ".username" do 
-
-
+    
     context "given a username exists" do 
     
     let!(:user) { User.create(username: "yo", email: "yolo@example.com", password: "a_password") }

@@ -2,7 +2,7 @@ class LocationsController < ApplicationController
 
   def create
     @chat = Chat.find_by_slug(params[:chat_id])
-    @message = MessageProxy.build_location_for_chat(location_params, @chat.id)
+    @message = Message.build_location_for_chat(location_params, @chat.id)
 
     Channel.publish(:chat_message, @message)
     respond_to do |format|

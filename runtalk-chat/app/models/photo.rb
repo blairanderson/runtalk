@@ -1,6 +1,6 @@
 require 'ostruct'
 
-class PhotoProxy < OpenStruct
+class Photo < OpenStruct
 
   def to_h
     @table.dup

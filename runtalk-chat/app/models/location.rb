@@ -1,6 +1,6 @@
 require 'ostruct'
 
-class LocationProxy < OpenStruct
+class Location < OpenStruct
 
   def address
     @address ||= build_address

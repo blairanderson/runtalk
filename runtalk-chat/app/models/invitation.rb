@@ -1,4 +1,4 @@
-class InvitationProxy
+class Invitation
 
   attr_reader :phone_number, :chat_id, :user_id
 

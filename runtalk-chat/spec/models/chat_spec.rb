@@ -15,7 +15,7 @@ describe Chat do
     it 'should convert these messages to MessageProxy objects' do 
       chat = create_chat
       messages = chat.messages
-      expect(messages.first).to be_kind_of MessageProxy
+      expect(messages.first).to be_kind_of Message
     end
   end
 

@@ -1,6 +1,6 @@
 require 'ostruct'
 
-class MessageProxy < OpenStruct
+class Message < OpenStruct
 
   def self.build_proxy_message(message_content, chat_id)
     valid_message = { 
@@ -18,7 +18,7 @@ class MessageProxy < OpenStruct
   end
 
   def self.build_location_for_chat(lat_long, chat_id)
-    location = LocationProxy.new(lat_long)
+    location = Location.new(lat_long)
     message = {
       chat_id: chat_id, 
       location: location,
@@ -29,7 +29,7 @@ class MessageProxy < OpenStruct
   end
 
   def self.build_photo_for_chat(photo, chat_id)
-    photo = PhotoProxy.new(photo)
+    photo = Photo.new(photo)
     message = {
       chat_id: chat_id, 
       photo: photo,

@@ -8,7 +8,7 @@ class InvitationsController < ApplicationController
 
     @chat = Chat.find_by_slug(params[:chat_id])
 
-    invitation = InvitationProxy.new(params)
+    invitation = Invitation.new(params)
 
     Channel.publish(:send_invitation, invitation)
     

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe LocationProxy do 
+describe Location do 
 
   let(:location) do 
     {
@@ -10,7 +10,7 @@ describe LocationProxy do
     }
   end
 
-  let(:subject) { LocationProxy.new(location)}
+  let(:subject) { Location.new(location)}
 
   its(:latitude) { location[:latitude] }
   its(:longitude) { location[:longitude] }
