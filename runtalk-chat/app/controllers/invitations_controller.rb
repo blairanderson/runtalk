@@ -2,7 +2,6 @@ class InvitationsController < ApplicationController
 
   def new 
     @chat = Chat.find_by_slug(params[:chat_id])
-    @invitation = Invitation.new
   end
 
   def create 

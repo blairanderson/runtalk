@@ -1,12 +1,7 @@
 class UsersController < ApplicationController
-  def new
-    @invitation = Invitation.find_by_unique_url(params[:activation_key])
 
-    if @invitation
-      @user = User.new
-    else
-      @user = User.new
-    end
+  def new
+    @user = User.new
   end
 
   def create
@@ -26,17 +21,5 @@ class UsersController < ApplicationController
   def add 
     @chat_id = params[:chat_id]
     @user = User.new
-  end
-
-  def invite
-    user = User.find_by_email(params[:user][:email])
-
-    if user
-      UserMailer.send_registered_user_invitation(user.email)
-    else
-      UserMailer.send_invitation(params[:user][:email])
-    end
-
-    redirect_to chat_path(params[:user][:chat_id])
   end
 end
