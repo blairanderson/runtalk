@@ -12,6 +12,8 @@ RuntalkChat::Application.routes.draw do
 
 
   resource :sessions, only: [:new, :create]
+  get '/logout' => 'sessions#destroy', as: 'logout'
+  get '/login' => 'sessions#new', as: 'login'
   get '/search' => 'chats#search', as: 'search'
 
 end

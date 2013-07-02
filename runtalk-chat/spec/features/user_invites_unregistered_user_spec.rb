@@ -11,8 +11,8 @@ describe User do
       VCR.use_cassette("twilio_response") do 
         visit '/chats/whatever'
         click_on "invite_user"
-        fill_in "phone_number", :with => "15005550000"
-        click_on "Send Invitation"
+        fill_in "invitation_phone_number", :with => "15005550000"
+        click_on "submit"
   
         expect(Invitation.count).to eq 1
         expect(current_path).to eq '/chats/whatever'

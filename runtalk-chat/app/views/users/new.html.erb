@@ -1,23 +1,19 @@
-<h2>Create an Account</h2>
+<div class="text-center">
+  <h2>Create an Account</h2>
 
-<% if flash[:notice] %>
-  <div id='flash'>
-    <p><%= flash[:notice] %></p>
-  </div>
-<% end %>
-
-<% if @invitation %>
-  <p> Invitation to Chatroom </p>
-<% end %>
-
-
-<%= simple_form_for @user do |f| %>
-  <%= f.input :username %>
-  <%= f.input :email, input_html: {value: @user.email}%>
   <% if @invitation %>
-    <%= f.hidden_field :chat_id, :value => @invitation.chat_id %>
+    <p> Invitation to Chatroom </p>
   <% end %>
-  <%= f.input :password %>
 
-  <%= f.submit 'Create Account', class: 'btn' %>
-<% end %>
+
+  <%= simple_form_for @user do |f| %>
+    <%= f.input :username %>
+    <%= f.input :email, input_html: {value: @user.email}%>
+    <% if @invitation %>
+      <%= f.hidden_field :chat_id, :value => @invitation.chat_id %>
+    <% end %>
+    <%= f.input :password %>
+
+    <%= f.submit 'Create Account', class: 'btn' %>
+  <% end %>
+</div>

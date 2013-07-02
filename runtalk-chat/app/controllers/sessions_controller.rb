@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    @user = OpenStruct.new(username: "", password: "")
   end
 
   def create
@@ -12,5 +13,10 @@ class SessionsController < ApplicationController
     else
       redirect_to new_sessions_path, :notice => "Invalid credentials"
     end  
+  end
+
+  def destroy
+    logout
+    redirect_to root_path, notice: "You've been Logged Out. GOODBYE"
   end
 end

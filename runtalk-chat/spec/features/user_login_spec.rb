@@ -32,7 +32,7 @@ describe User do
         click_on "Log in"
 
         expect(current_path).to eq "/sessions/new"
-        within("#flash") do 
+        within(".alert") do 
           expect(page).to have_content("Invalid credentials")
         end
       end 

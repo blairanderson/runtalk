@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     @user = User.create(params[:user])
     @chat = Chat.find_by_id(params[:chat_id])
     if @user.valid?
+      auto_login(@user)
       if @chat
         redirect_to chat_path(@chat), :notice => "Account created" 
       else
