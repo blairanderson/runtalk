@@ -4,6 +4,10 @@ describe Invitation do
 
   describe '#send_email' do 
 
+    before do 
+      Text.any_instance.stub(:send_message)
+    end
+
     context 'the invited individual is a registered user' do 
 
       it 'should send an email to the user' do

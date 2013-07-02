@@ -2,7 +2,8 @@ class InvitationRecorder
 
   def self.record(message)
     data = JSON.parse(message).with_indifferent_access
-    Invitation.create(data)
+
+    invitation = Invitation.create!(data).send_text
   end
 
   def self.listen

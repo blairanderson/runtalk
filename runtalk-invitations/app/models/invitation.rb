@@ -3,8 +3,6 @@ class Invitation < ActiveRecord::Base
 
   after_create :generate_unique_url
 
-  after_save :send_text
-
   def send_text
     Text.new(phone_number).send_invitation(self)
   end

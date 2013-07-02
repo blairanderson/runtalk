@@ -7,13 +7,17 @@ describe Text do
 
   describe "#send_invitation" do 
 
-    let(:Text) { Text.new }
+    before do 
+      Text.any_instance.stub(:send_message)
+    end
 
     it "sends a registered user an invitation email" do 
 
+      text = Text.new(invitation.phone_number)
+
       VCR.use_cassette("twilio_new") do 
-        Text.any_instance.should_receive(:send_message)
-        Text.new(invitation.phone_number).send_invitation(invitation)
+        text.should_receive(:send_message)
+        text.send_invitation(invitation)
       end
     end
   end
