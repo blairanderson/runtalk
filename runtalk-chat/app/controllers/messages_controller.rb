@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
     @message = Message.build_proxy_message(
       params[:content], 
       @chat.id)
-    
+    @message.profile = Profile.find_by_id(session[:profile_id])
     Channel.publish(:chat_message, @message)
 
     respond_to do |format|

@@ -22,19 +22,17 @@
     <h3>Welcome to RunTalk.</h3>
     <h4>Mobile Chatrooms. Your Location, Your Images.</h4>
   </div>
-<div>
+<div>  
 <% if flash[:notice] %>
   <div class='alert'>
     <h3 class="text-center"><%= flash[:notice] %></h3>
   </div>
 <% end %>
   <h1 class="text-center">Find Room</h1>
-  <%= form_tag("/search", :method => "get", :class => "form-search text-center") do %>
+  <%= form_tag(search_path, method: :get, :class => "form-search text-center") do %>
     <%= text_field_tag :id, nil, id: "search-box", autocomplete: "off",  data: {provide: "typeahead", items: 10, source: @search_data.to_json} %>
     <%= submit_tag "Search", :class =>"btn btn-info center-button", :action => "show" %>
   <% end %>
-
-
   <h1 class="text-center">Create Room</h1>
   <%= form_tag("/chats/new", :method => "get", :class => "form-search text-center" ) do %>
     <%= text_field_tag :name %>

@@ -2,8 +2,11 @@ class PhotosController < ApplicationController
   
   def create
     @chat = Chat.find_by_slug(params[:chat_id])
+
     @message = Message.build_photo_for_chat(photo_params, @chat.id)
 
+    @message.profile = Profile.find_by_id(session[:profile_id])
+    
     Channel.publish(:chat_message, @message)
     respond_to do |format|
       format.js do

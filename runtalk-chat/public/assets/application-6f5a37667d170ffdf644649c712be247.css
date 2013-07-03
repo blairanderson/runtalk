@@ -8,19 +8,10 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
- *= require_tree .
+
+
  */
 
-.btn-login {
-padding: 19px 36px;
-display: block;
-width: 100%;
-padding-right: 0;
-padding-left: 0;
-margin: 3px;
-font-size: 24px;
-} 
 
 body {
   padding-left: 0px;

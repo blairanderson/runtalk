@@ -5,6 +5,6 @@ test:
   server: "http://localhost:9292/faye"
   secret_token: "secret"
 production:
-  server: "http://example.com/faye"
+  server: "http://www.runtalk.us:9292/faye"
   secret_token: "86e70071853ab0cc04045028900fcfb6d941e6f32f16a7d7f8e3c987658acd63"
   signature_expiration: 3600 # one hour

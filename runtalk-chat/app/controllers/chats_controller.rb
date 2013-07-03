@@ -1,5 +1,5 @@
 class ChatsController < ApplicationController
-
+  before_filter :load_current_user, only: [:show]
   def index
     @chat = Chat.new
     @search_data = Chat.all.map(&:slug)
@@ -7,6 +7,13 @@ class ChatsController < ApplicationController
 
   def show
     @chat = Chat.find_by_slug(params[:id])
+  end
+
+  def load_current_user
+    @chat = Chat.find_by_slug(params[:id])
+    unless session[:profile_id]
+      redirect_to chat_name_path(@chat)
+    end
   end
 
   def new
