@@ -2,6 +2,9 @@ class MessageRecorder
 
   def self.record(message)
     data = JSON.parse(message).with_indifferent_access
+
+    raise data.inspect 
+    
     Message.store_message(data)
   end
 
