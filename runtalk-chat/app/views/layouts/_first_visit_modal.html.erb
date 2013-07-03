@@ -1,0 +1,26 @@
+<section class="semantic-content" id="run-once" tabindex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+    <div class="modal-inner">
+        <div class="modal-content">
+          <h1 class="text-center">
+            Welcome to Runtalk.
+          </h1>
+            <%= link_to 'Choose Temporary Display Name.', new_profile_path(chat_id: session[:chat_id]), class: "btn btn-info btn-login" %>
+            <%= link_to 'Create Account.', new_users_path(chat_id: session[:chat_id]), class: "btn btn-warning btn-login" %>
+            <%= link_to 'Login.', login_path(chat_id: session[:chat_id]), class: "btn btn-success btn-login"  %>
+        </div>
+    </div>
+</section>
+
+<% unless logged_in? %> 
+<script type="text/javascript">
+  $(document).ready(function(){
+    var pathname = window.location.pathname;
+    if(pathname.indexOf("#run-once") >= 0) {
+      // code to be executed if condition is true
+      } 
+      else {
+        window.location.href = pathname + "#run-once";
+      }
+  })
+</script>
+<% end %>

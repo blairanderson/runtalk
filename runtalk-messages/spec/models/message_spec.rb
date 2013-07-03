@@ -7,7 +7,8 @@ describe Message do
     let(:valid_attributes) do 
       {
         content: "some content",
-        chat_id: 1
+        chat_id: 1,
+        profile: {id: 1}
       }
     end
   
@@ -22,6 +23,7 @@ describe Message do
       {
         content: "some content",
         chat_id: 1,
+        profile: {id: 1},
         location: {
           latitude: "39.733482200000005",
           longitude: "-104.9926124",
@@ -53,7 +55,8 @@ describe Message do
       {
         content: "some content",
         chat_id: 1,
-        photo: {photo_url: "http://filepicker.com/poop"}
+        photo: {photo_url: "http://filepicker.com/poop"},
+        profile: {id: 1}
       }
     end
 

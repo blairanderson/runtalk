@@ -6,12 +6,10 @@
   <% end %>
 
 
-  <%= simple_form_for @user do |f| %>
+  <%= simple_form_for(@user) do |f| %>
     <%= f.input :username %>
     <%= f.input :email, input_html: {value: @user.email}%>
-    <% if @invitation %>
-      <%= f.hidden_field :chat_id, :value => @invitation.chat_id %>
-    <% end %>
+    <%= hidden_field_tag :chat_id, params[:chat_id] %>
     <%= f.input :password %>
 
     <%= f.submit 'Create Account', class: 'btn' %>

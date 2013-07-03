@@ -14,6 +14,7 @@ class MessageProxy < OpenStruct
     result = new(message)
     result = build_location_for_chat(message[:location], message[:chat_id]) if message[:location]
     result = build_photo_for_chat(message[:photo], message[:chat_id]) if message[:photo]
+    result.profile = Profile.find_by_id(message[:user_id])
     result      
   end
 
