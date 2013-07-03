@@ -2,7 +2,11 @@ require 'spec_helper'
 
 describe Invitation do
 
-  describe '#send_email' do 
+  describe '#send_text' do 
+
+    before do 
+      Text.any_instance.stub(:send_message)
+    end
 
     context 'the invited individual is a registered user' do 
 

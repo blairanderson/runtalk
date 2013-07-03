@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe InvitationRecorder do 
 
+  before do 
+    Text.any_instance.stub(:send_message)
+  end
+
   context "all attributes are valid" do 
   
     it "creates a new invitation" do 
