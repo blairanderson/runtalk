@@ -8,9 +8,8 @@ describe InvitationsController do
     let!(:user) { User.create(username: "jo", email: "jolo@example.com", password: "a_password") }
 
     it "creates a new invitation" do 
-
+      Channel.stub(:publish).and_return(true)
       VCR.use_cassette("create_invitations") do
-
         post :create, { phone_number: "15005550000", chat_id: chat.slug, user_id: user.id }
         expect(assigns(:chat)).to eq chat
       end

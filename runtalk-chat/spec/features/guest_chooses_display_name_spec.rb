@@ -21,7 +21,7 @@ describe 'Profiles' do
     
     it 'has messages referencing their profile' do 
       pending "new feature, not yet implemented"
-    
+
       Chat.any_instance.stub(:message_request).and_return([])
 
       visit chat_path(chat)
