@@ -7,23 +7,16 @@ describe User do
     context "valid credentials are entered" do 
 
       it "creates a new user" do 
-
-        visit "/"
-        click_on "Sign Up"
-
-        expect(current_path).to eq "/users/new"
+        visit new_users_path
 
         fill_in "Username", :with => "Sally"
         fill_in "Email", :with => "SillySally@emample.com"
         fill_in "Password", :with => "the_most_secret"
 
         click_on "Create Account"
-
-        expect(current_path).to eq "/"
+        expect(User.count).to eq 1
+        expect(Profile.count).to eq 1
       end
-    end
-
-    context "an invalid user is created" do 
     end
   end
 

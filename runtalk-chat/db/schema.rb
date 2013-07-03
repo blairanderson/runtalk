@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130701204202) do
+ActiveRecord::Schema.define(version: 20130702212551) do
 
   create_table "chats", force: true do |t|
     t.string   "slug"
@@ -63,6 +63,16 @@ ActiveRecord::Schema.define(version: 20130701204202) do
   end
 
   add_index "photos", ["message_id"], name: "index_photos_on_message_id"
+
+  create_table "profiles", force: true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "username",         null: false

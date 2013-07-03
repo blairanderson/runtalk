@@ -18,10 +18,7 @@ describe Chat do
         fill_in 'name', :with => "Example123"
         click_button 'Create'
         click_button 'Create Chatroom'
-
-
-        expect(current_path).to eq "/chats/example123"
-        expect(page).to have_content("Example123")
+        expect(current_path).to eq "/chats/example123/name"
       end
     end
   

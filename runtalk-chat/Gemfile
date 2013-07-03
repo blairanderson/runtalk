@@ -17,6 +17,7 @@ gem 'figaro'
 gem 'haml'
 gem 'redis'
 gem 'httparty'
+gem 'gravatar_image_tag'
 
 group :production do 
   gem 'pg'
