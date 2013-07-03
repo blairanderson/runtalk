@@ -12,6 +12,10 @@ class Chat < ActiveRecord::Base
     "http://localhost:3001/#{path}"
   end
 
+  def title
+    name.to_s.capitalize
+  end
+
   def message_request
     begin
       response = HTTParty.get request_url("messages?chat_id=#{self.id}")
