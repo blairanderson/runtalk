@@ -1,11 +1,11 @@
 class Message < ActiveRecord::Base
-  attr_accessible :content, :chat_id
+  attr_accessible :content, :chat_id, :user_id
   
   has_one :location
   has_one :photo
 
   def self.store_message(data)
-    message = create(content: data[:content], chat_id: data[:chat_id])
+    message = create(content: data[:content], chat_id: data[:chat_id], user_id: data[:profile][:id])
     if data[:location]
       message.create_location(data[:location])
     end

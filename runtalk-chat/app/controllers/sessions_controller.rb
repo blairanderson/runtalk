@@ -21,6 +21,7 @@ class SessionsController < ApplicationController
 
   def destroy
     logout
+    session[:profile_id] = nil
     redirect_to root_path, notice: "You've been Logged Out. GOODBYE"
   end
 end
