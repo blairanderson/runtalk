@@ -23,6 +23,9 @@ class Chat < ActiveRecord::Base
 
   def messages
     messages = message_request
+
+    # raise messages.inspect
+
     messages.map do |message|
       Message.build_message_with_location_or_photo(message.with_indifferent_access)
     end
